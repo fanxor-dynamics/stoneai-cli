@@ -1,0 +1,42 @@
+@stoneai/cli — PROPRIETARY LICENSE — ALL RIGHTS RESERVED
+=========================================================
+
+Copyright © 2026 FanXor Dynamics LLC. All rights reserved.
+
+This package ("the Software") is proprietary software of FanXor Dynamics LLC
+("Owner"). It is published to a package registry solely to enable authorized
+end users to install and run it as a client of the StoneAI service.
+
+1. LICENSE GRANT (LIMITED).
+   Subject to these terms, the Owner grants you a personal, non-exclusive,
+   non-transferable, revocable license to install and run unmodified copies of
+   the Software solely to access the Owner's StoneAI service under a valid
+   account. No other rights are granted.
+
+2. RESTRICTIONS.
+   You may NOT: (a) copy the Software except as required to install/run it;
+   (b) modify, adapt, translate, or create derivative works; (c) reverse-
+   engineer, decompile, or disassemble except to the extent this restriction is
+   prohibited by applicable law; (d) redistribute, sublicense, sell, rent,
+   lease, or host the Software; (e) remove or alter any proprietary notices;
+   (f) use the Software to build or assist a competing product.
+
+3. SERVICE + IP.
+   The Software is a thin client. The StoneAI service, its governance engine,
+   the Codex, the Aegis, and all server-side technology and trade secrets remain
+   the exclusive property of the Owner and are NOT licensed by this package.
+   "StoneAI", "Wrote in Stone", and related marks are trademarks of the Owner.
+
+4. TERMINATION.
+   This license terminates automatically on any breach, or on termination of
+   your StoneAI account. On termination you must cease use and delete all copies.
+
+5. NO WARRANTY; NO LIABILITY.
+   THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM
+   EXTENT PERMITTED BY LAW THE OWNER IS NOT LIABLE FOR ANY CLAIM, DAMAGES, OR
+   LIABILITY ARISING FROM OR RELATING TO THE SOFTWARE.
+
+6. GOVERNING LAW.
+   State of Wyoming, USA, without regard to conflicts-of-law rules.
+
+Licensing / commercial inquiries: josh@fanzunlimited.com

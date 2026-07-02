@@ -1,0 +1,20 @@
+# Belt-and-suspenders (package.json "files" already allowlists what ships).
+# Never publish anything not explicitly needed to run the client.
+*
+!bin/**
+!lib/**
+!README.md
+!LICENSE
+!SECURITY.md
+!package.json
+
+# Absolute denials (in case the allowlist above is ever loosened)
+.env
+.env.*
+*.key
+*.pem
+.stoneai/
+node_modules/
+test/
+.git/
+.github/

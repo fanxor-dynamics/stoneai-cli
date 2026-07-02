@@ -1,0 +1,37 @@
+{
+  "name": "@stoneai/cli",
+  "version": "0.1.0",
+  "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
+  "type": "module",
+  "bin": {
+    "stoneai": "bin/stoneai.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "README.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ai-governance",
+    "human-in-the-loop",
+    "approval",
+    "covenant",
+    "autonomous-agents",
+    "stoneai"
+  ],
+  "homepage": "https://wroteinstone.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FANZ-Group/stoneai-cli"
+  },
+  "author": "FanXor Dynamics LLC",
+  "license": "UNLICENSED"
+}

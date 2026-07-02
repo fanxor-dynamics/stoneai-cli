@@ -1,0 +1,7 @@
+node_modules/
+.stoneai/
+*.tgz
+.DS_Store
+.env
+*.key
+*.pem

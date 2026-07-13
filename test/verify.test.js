@@ -16,8 +16,13 @@ const sha256 = (s) => createHash('sha256').update(s, 'utf8').digest();
 const sha256hex = (s) => createHash('sha256').update(s, 'utf8').digest('hex');
 const BIN = join(dirname(fileURLToPath(import.meta.url)), '..', 'bin', 'stoneai.js');
 
-/** Build a mathematically valid Receipt v1 with a locally generated keypair. */
-async function makeReceipt() {
+/**
+ * Build a mathematically valid Receipt v1 with a locally generated keypair.
+ * The eventType strings MUST be the ones the server's audit ledger actually
+ * writes ('decree.approved' / 'decree.denied') — a self-consistent fixture with
+ * invented names passes its own tests while disagreeing with production.
+ */
+async function makeReceipt(decision = 'approved') {
   const priv = ed.utils.randomPrivateKey();
   const pub = ed.etc.bytesToHex(await ed.getPublicKeyAsync(priv));
   const contentHash = sha256hex('the governed content');
@@ -30,29 +35,55 @@ async function makeReceipt() {
     approval.contentHash, approval.nonce, approval.expiry,
   ]));
   approval.signature = ed.etc.bytesToHex(await ed.signAsync(msg, priv));
-  const chain = { eventType: 'covenant.approved', payload: { decreeId: 'dec_1' }, prevHash: '0'.repeat(64) };
+  const chain = { eventType: `decree.${decision}`, payload: { decreeId: 'dec_1' }, prevHash: '0'.repeat(64) };
   chain.entryHash = sha256hex(JSON.stringify({
     tenantId: 'ten_1', eventType: chain.eventType, payload: chain.payload, prev: chain.prevHash,
   }));
   return {
     receipt: {
-      v: 1, tenantId: 'ten_1', decreeId: 'dec_1', contentHash, decision: 'approved',
+      v: 1, tenantId: 'ten_1', decreeId: 'dec_1', contentHash, decision,
       approval, pubKey: pub, chain, anchor: null,
     },
     pub,
   };
 }
 
-test('valid receipt → all three flags true', async () => {
+test('valid receipt → all four flags true', async () => {
   const { receipt } = await makeReceipt();
   const r = await verifyReceipt(receipt);
   assert.equal(r.sigValid, true);
   assert.equal(r.boundToDecree, true);
   assert.equal(r.chainValid, true);
+  assert.equal(r.decisionBound, true);
   assert.equal(r.valid, true);
   assert.equal(r.decision, 'approved');
   assert.equal(r.decreeId, 'dec_1');
   assert.equal(r.expiry, 1783000000000);
+});
+
+// REGRESSION (2026-07-13): the Ed25519 claim tuple does not cover approve-vs-deny.
+// Relabelling a denied receipt "approved" once verified as VALID — defeating the
+// receipt's whole purpose. The verdict is now welded to the hash-chained audit
+// eventType. Both the server and this CLI enforce it; they must never diverge.
+test('forged verdict: denied receipt relabelled approved → REJECTED', async () => {
+  const { receipt } = await makeReceipt('denied');
+  assert.equal((await verifyReceipt(receipt)).valid, true); // honest denial verifies
+  receipt.decision = 'approved'; // the lie
+  const r = await verifyReceipt(receipt);
+  assert.equal(r.decisionBound, false);
+  assert.equal(r.valid, false);
+  // the other three still pass — proving decisionBound is what caught it
+  assert.equal(r.sigValid, true);
+  assert.equal(r.boundToDecree, true);
+  assert.equal(r.chainValid, true);
+});
+
+test('forged verdict: approved receipt relabelled denied → REJECTED', async () => {
+  const { receipt } = await makeReceipt('approved');
+  receipt.decision = 'denied';
+  const r = await verifyReceipt(receipt);
+  assert.equal(r.decisionBound, false);
+  assert.equal(r.valid, false);
 });
 
 test('tampered receipt.contentHash → boundToDecree flips, signature still valid', async () => {

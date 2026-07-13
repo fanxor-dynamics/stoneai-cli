@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
   "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  },
   "bin": {
     "stoneai": "bin/stoneai.js"
   },
@@ -33,5 +40,8 @@
     "url": "https://github.com/FANZ-Group/stoneai-cli"
   },
   "author": "FanXor Dynamics LLC",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@noble/ed25519": "^2.3.0"
+  }
 }

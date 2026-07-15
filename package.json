@@ -1,6 +1,6 @@
 {
   "name": "@stoneai/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
   "type": "module",
   "bin": {
@@ -30,7 +30,7 @@
   "homepage": "https://wroteinstone.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FANZ-Group/stoneai-cli"
+    "url": "https://github.com/fanxor-dynamics/stoneai-cli"
   },
   "author": "FanXor Dynamics LLC",
   "license": "UNLICENSED"

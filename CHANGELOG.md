@@ -6,6 +6,11 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-07-19
+
+First release published from CI. Carries a provenance attestation; 0.1.0 and
+0.1.1 do not.
+
 ### Added
 - **npm Trusted Publishing (OIDC).** Releases publish from GitHub Actions via a
   short-lived OIDC credential. No long-lived npm token exists in this repository
@@ -51,3 +56,4 @@ Initial release. Published manually. No provenance attestation.
 [Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.1...HEAD
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1
 [0.1.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.0
+[0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2

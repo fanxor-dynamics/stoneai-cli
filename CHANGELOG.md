@@ -11,6 +11,15 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 First release published from CI. Carries a provenance attestation; 0.1.0 and
 0.1.1 do not.
 
+### Fixed
+- **Checkout no longer names a payment processor** (ch.184 cardinal rule 7).
+  `upgrade` previously sent a hardcoded processor in the checkout call, so
+  changing processors would have required shipping a new CLI to every user. It
+  now reads `GET /v1/checkout/methods` and uses what the server advertises,
+  with an optional `--method <name>` override. The server already had the
+  swap-ready interface; only the client was hardcoded.
+- A test now fails the build if any payment processor name appears in `lib/`.
+
 ### Added
 - **npm Trusted Publishing (OIDC).** Releases publish from GitHub Actions via a
   short-lived OIDC credential. No long-lived npm token exists in this repository

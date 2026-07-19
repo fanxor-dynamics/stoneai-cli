@@ -1,0 +1,99 @@
+# Quality gate — runs on every PR and every push to main.
+#
+# Separate from publish.yml on purpose: this gate should fail loudly and often
+# during development, while publish.yml runs rarely and must be boring.
+
+name: Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+      - run: npm ci
+      - name: npm audit (fail on moderate or higher)
+        run: npm audit --audit-level=moderate
+
+  package:
+    name: Package integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: npm
+      - run: npm ci
+
+      # The published tarball is the actual product. Assert its contents rather
+      # than trusting that `files` and `.npmignore` still agree with each other.
+      - name: Assert tarball contents
+        run: |
+          npm pack --dry-run --json > /tmp/pack.json
+          node -e '
+            const pack = require("/tmp/pack.json")[0];
+            const files = pack.files.map(f => f.path).sort();
+            console.log("Tarball contents:\n  " + files.join("\n  "));
+
+            const forbidden = files.filter(f =>
+              /^(test|\.github)\//.test(f) ||
+              /(^|\/)\.env/.test(f) ||
+              /\.(key|pem)$/.test(f)
+            );
+            if (forbidden.length) {
+              console.error("::error::Files that must never ship are in the tarball: " + forbidden.join(", "));
+              process.exit(1);
+            }
+
+            for (const required of ["package.json", "README.md", "LICENSE", "SECURITY.md", "bin/stoneai.js"]) {
+              if (!files.includes(required)) {
+                console.error("::error::Required file missing from tarball: " + required);
+                process.exit(1);
+              }
+            }
+            console.log("\nPackage integrity OK — " + files.length + " files.");
+          '
+
+      # Provenance is rejected at publish time if package.json `repository` does
+      # not match the publishing repo exactly. Catching that on a PR is cheap;
+      # catching it during a release is not.
+      - name: Assert repository field matches this repo
+        run: |
+          REPO_URL="$(node -p "require('./package.json').repository.url")"
+          EXPECTED="git+https://github.com/${GITHUB_REPOSITORY}.git"
+          echo "package.json: $REPO_URL"
+          echo "expected:     $EXPECTED"
+          if [ "$REPO_URL" != "$EXPECTED" ]; then
+            echo "::error::repository.url must be '$EXPECTED' for npm provenance to be accepted."
+            exit 1
+          fi

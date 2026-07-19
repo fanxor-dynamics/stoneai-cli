@@ -1,0 +1,38 @@
+# Dependency + Action update automation.
+#
+# This package ships with zero runtime dependencies by design (see SECURITY.md),
+# so the npm ecosystem below will normally be quiet — that silence is the point,
+# and a sudden PR here is itself a signal worth reading closely.
+#
+# GitHub Actions pins are the real supply-chain surface: a compromised action in
+# publish.yml would run inside a job holding `id-token: write`.
+
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Detroit
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "fix(deps)"
+      prefix-development: "chore(deps)"
+    labels:
+      - dependencies
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: America/Detroit
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci(actions)"
+    labels:
+      - dependencies
+      - ci

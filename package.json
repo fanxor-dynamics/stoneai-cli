@@ -1,6 +1,6 @@
 {
   "name": "@stoneai/cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
   "type": "module",
   "bin": {

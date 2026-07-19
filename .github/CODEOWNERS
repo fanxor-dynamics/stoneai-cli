@@ -1,0 +1,13 @@
+# Default owner for everything in this repository.
+* @fanxor-dynamics/developers
+
+# Publishing and supply-chain surfaces. Changes here alter who can push code to
+# the registry under this package name, so they get explicit ownership rather
+# than inheriting the catch-all above.
+/.github/workflows/publish.yml  @fanxor-dynamics/developers
+/.github/workflows/             @fanxor-dynamics/developers
+/package.json                   @fanxor-dynamics/developers
+
+# Licensing and security posture. Both are legal/disclosure surfaces, not code.
+/LICENSE      @fanxor-dynamics/developers
+/SECURITY.md  @fanxor-dynamics/developers

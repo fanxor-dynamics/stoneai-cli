@@ -23,7 +23,7 @@ stoneai covenant approve <id>
 | `stoneai upgrade [plan]` | open checkout to subscribe |
 
 ## Security
-Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · npm-provenance-signed releases. See [`SECURITY.md`](./SECURITY.md).
+Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).
 
 ## License
 Proprietary — © 2026 FanXor Dynamics LLC. All rights reserved. See [`LICENSE`](./LICENSE).

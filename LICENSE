@@ -1,42 +1,455 @@
-@stoneai/cli — PROPRIETARY LICENSE — ALL RIGHTS RESERVED
-=========================================================
+StoneAI CLI Proprietary Software License Agreement
 
-Copyright © 2026 FanXor Dynamics LLC. All rights reserved.
+Version 1.0
+Copyright (c) 2026 Joshua Stone. All Rights Reserved.
 
-This package ("the Software") is proprietary software of FanXor Dynamics LLC
-("Owner"). It is published to a package registry solely to enable authorized
-end users to install and run it as a client of the StoneAI service.
+[STATUS: PENDING ATTORNEY REVIEW - not yet based on an attorney-approved form.
+ Remove this bracketed notice once counsel has approved. See section 3 note re:
+ entity legal names pending formation-record verification.]
 
-1. LICENSE GRANT (LIMITED).
-   Subject to these terms, the Owner grants you a personal, non-exclusive,
-   non-transferable, revocable license to install and run unmodified copies of
-   the Software solely to access the Owner's StoneAI service under a valid
-   account. No other rights are granted.
+IMPORTANT NOTICE: BY INSTALLING, COPYING, ACCESSING, OR USING THE SOFTWARE, YOU
+ACKNOWLEDGE THAT YOU HAVE READ, UNDERSTAND, AND AGREE TO BE LEGALLY BOUND BY THIS
+LICENSE AGREEMENT. IF YOU DO NOT AGREE TO THESE TERMS, DO NOT INSTALL OR USE THE
+SOFTWARE.
 
-2. RESTRICTIONS.
-   You may NOT: (a) copy the Software except as required to install/run it;
-   (b) modify, adapt, translate, or create derivative works; (c) reverse-
-   engineer, decompile, or disassemble except to the extent this restriction is
-   prohibited by applicable law; (d) redistribute, sublicense, sell, rent,
-   lease, or host the Software; (e) remove or alter any proprietary notices;
-   (f) use the Software to build or assist a competing product.
+--------------------------------------------------------------------------------
 
-3. SERVICE + IP.
-   The Software is a thin client. The StoneAI service, its governance engine,
-   the Codex, the Aegis, and all server-side technology and trade secrets remain
-   the exclusive property of the Owner and are NOT licensed by this package.
-   "StoneAI", "Wrote in Stone", and related marks are trademarks of the Owner.
+1. DEFINITIONS
 
-4. TERMINATION.
-   This license terminates automatically on any breach, or on termination of
-   your StoneAI account. On termination you must cease use and delete all copies.
+For purposes of this Agreement:
 
-5. NO WARRANTY; NO LIABILITY.
-   THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. TO THE MAXIMUM
-   EXTENT PERMITTED BY LAW THE OWNER IS NOT LIABLE FOR ANY CLAIM, DAMAGES, OR
-   LIABILITY ARISING FROM OR RELATING TO THE SOFTWARE.
+"Owner" means Joshua Stone, the sole owner of all intellectual property rights in
+StoneAI.
 
-6. GOVERNING LAW.
-   State of Wyoming, USA, without regard to conflicts-of-law rules.
+"Software" means the StoneAI CLI executable, installers, updates, documentation,
+configuration files, and any accompanying materials distributed by or on behalf of
+the Owner.
 
-Licensing / commercial inquiries: josh@fanzunlimited.com
+"Service" means the proprietary StoneAI cloud platform and all associated backend
+infrastructure.
+
+"User" means any individual or entity installing, accessing, or using the Software.
+
+2. OWNERSHIP
+
+The Software, Service, source code, object code, architecture, algorithms,
+documentation, user interface, designs, models, prompts, workflows, databases,
+trade secrets, trademarks, copyrights, patents, know-how, and all related
+intellectual property are and shall remain the exclusive property of Joshua Stone.
+
+Nothing in this Agreement transfers or assigns any ownership interest.
+
+No ownership shall arise by implication, estoppel, access, possession, disclosure,
+or continued use.
+
+Ownership may be transferred only through a separate written assignment signed by
+Joshua Stone.
+
+3. CORPORATE LICENSE STRUCTURE
+
+The following entities operate solely under separate written licenses from the
+Owner:
+
+  * FanXora Innovation & Technology Group LLC - Exclusive commercial licensee.
+  * FanXor Dynamics LLC - Authorized technology operator.
+  * FanXus Omnivations LLC - Authorized reseller and distributor.
+
+None of these entities owns any underlying StoneAI intellectual property.
+
+Their rights exist solely under separate contractual agreements with the Owner.
+
+Nothing in this Agreement grants Users any rights through those entities beyond the
+license expressly granted herein.
+
+4. LIMITED LICENSE
+
+Subject to continuous compliance with this Agreement and any applicable subscription
+or service agreement, the Owner grants the User a limited, personal, revocable,
+non-exclusive, non-transferable, non-sublicensable license to:
+
+  * install the Software;
+  * execute unmodified copies of the Software; and
+  * access the StoneAI Service solely for its intended purpose.
+
+No other rights are granted.
+
+5. NO IMPLIED LICENSES
+
+No rights are granted except those expressly stated in this Agreement.
+
+Without limitation, no license is granted by implication, estoppel, exhaustion,
+waiver, prior dealings, industry custom, or otherwise.
+
+All rights not expressly granted are reserved.
+
+6. PROHIBITED ACTIVITIES
+
+Except where expressly prohibited from restriction by applicable law, the User shall
+not:
+
+  * modify the Software;
+  * create derivative works;
+  * reverse engineer;
+  * decompile;
+  * disassemble;
+  * decode;
+  * reconstruct source code;
+  * remove copyright notices;
+  * remove licensing notices;
+  * bypass authentication systems;
+  * bypass subscription controls;
+  * circumvent technical protection measures;
+  * extract proprietary models;
+  * extract proprietary prompts;
+  * scrape proprietary data;
+  * copy system behavior;
+  * reproduce proprietary workflows;
+  * benchmark the Service for publication without written consent;
+  * redistribute the Software;
+  * sublicense the Software;
+  * rent or lease the Software;
+  * sell the Software;
+  * provide the Software as a hosted service;
+  * use the Software to develop a competing product through unauthorized copying or
+    misappropriation of proprietary technology;
+  * share accounts or credentials;
+  * permit unauthorized access;
+  * violate applicable law.
+
+7. SERVICE ACCESS
+
+The Software functions primarily as a client for the proprietary StoneAI Service.
+
+Access to the Service may require:
+
+  * authentication;
+  * payment;
+  * subscription;
+  * licensing verification;
+  * device authorization;
+  * compliance verification;
+  * usage limitations;
+  * security controls.
+
+The Owner may suspend or terminate access for violation of this Agreement or
+applicable service terms.
+
+8. ACCEPTABLE USE POLICY
+
+The StoneAI Acceptable Use Policy ("AUP"), as published by the Owner and updated from
+time to time, is incorporated into this Agreement by reference and forms a material
+part hereof. The User shall comply with the AUP at all times. In the event of a
+conflict between the AUP and this Agreement with respect to permitted use, the more
+restrictive provision controls. Continued use of the Software or Service following
+publication of an updated AUP constitutes acceptance of that update.
+
+9. LICENSE KEYS, SUBSCRIPTIONS, AND ACCOUNTS
+
+All license keys, API keys, activation codes, entitlements, subscriptions, and
+accounts issued in connection with the Software or Service are and remain the sole
+property of the Owner. They are licensed, not sold, and confer no ownership interest.
+
+The User shall not sell, transfer, assign, lease, sublicense, share, publish, or
+otherwise make available any license key, credential, or account to any third party.
+
+The Owner may suspend, revoke, reset, or terminate any license key, credential,
+entitlement, subscription, or account, in whole or in part, for abuse, suspected
+compromise, credential sharing, circumvention of usage limits, non-payment, breach of
+this Agreement or the AUP, or as required by law. Revocation for cause creates no
+liability of the Owner to the User.
+
+10. INTELLECTUAL PROPERTY
+
+The following remain the exclusive property of Joshua Stone:
+
+  * StoneAI platform
+  * StoneAI architecture
+  * Codex
+  * Aegis
+  * governance systems
+  * orchestration logic
+  * prompts
+  * model instructions
+  * server-side software
+  * APIs
+  * documentation
+  * databases
+  * workflows
+  * trade secrets
+  * confidential information
+
+No ownership or license to any server-side technology is granted by distribution of
+the Software.
+
+11. CONFIDENTIAL INFORMATION
+
+The User acknowledges that portions of the Software and Service embody confidential
+and proprietary information and trade secrets.
+
+The User agrees not to disclose, publish, reproduce, or use such confidential
+information except as expressly authorized.
+
+Unauthorized disclosure may cause irreparable harm for which monetary damages may be
+inadequate.
+
+The Owner shall be entitled to seek injunctive relief in addition to any other
+remedies available at law or equity.
+
+12. TRADEMARKS
+
+"StoneAI," "Wrote in Stone," associated logos, branding, slogans, and product names
+are trademarks or common-law marks owned exclusively by Joshua Stone.
+
+Nothing in this Agreement grants any trademark license.
+
+13. COPYRIGHT COMPLIANCE; DMCA; REPEAT INFRINGERS
+
+The Owner respects the intellectual property rights of others and requires the same
+of Users. The Owner maintains a policy, in accordance with the Digital Millennium
+Copyright Act, 17 U.S.C. 512, of terminating the accounts and access of Users who are
+determined to be repeat infringers.
+
+Claims of copyright infringement relating to material transmitted through or stored on
+the Service may be submitted to the Owner's designated agent at the address in the
+Licensing Inquiries section below. A valid notification must include the elements
+required by 17 U.S.C. 512(c)(3). Counter-notifications may be submitted as provided in
+17 U.S.C. 512(g).
+
+The Owner may remove or disable access to allegedly infringing material and may
+suspend or terminate access for Users subject to repeat or egregious claims, in the
+Owner's sole discretion and without liability.
+
+14. AUDIT AND COMPLIANCE
+
+Where the User is an entity licensing the Software for organizational use, the Owner
+may, upon thirty (30) days' prior written notice and not more than once in any twelve
+(12) month period absent reasonable suspicion of breach, audit the User's use of the
+Software and Service solely to verify compliance with this Agreement.
+
+Audits shall be conducted during normal business hours, shall not unreasonably
+interfere with the User's operations, and shall be subject to the User's reasonable
+confidentiality and security requirements.
+
+If an audit reveals underpayment or unlicensed use exceeding five percent (5%) of
+amounts properly due, the User shall bear the reasonable cost of the audit in addition
+to remitting the amounts owed, without prejudice to any other remedy.
+
+The User shall maintain accurate records of deployment, seats, instances, and usage
+sufficient to demonstrate compliance for the duration of this Agreement and two (2)
+years thereafter.
+
+15. UPDATES
+
+The Owner may modify, update, replace, discontinue, suspend, or remove any portion of
+the Software or Service at any time.
+
+Nothing obligates the Owner to continue providing updates, support, maintenance,
+compatibility, or future versions.
+
+16. TERMINATION
+
+This Agreement automatically terminates if:
+
+  * the User breaches any provision;
+  * the User's subscription expires;
+  * access credentials are revoked;
+  * the Service is discontinued;
+  * the Owner terminates access pursuant to applicable agreements.
+
+Upon termination the User shall immediately:
+
+  * cease all use;
+  * uninstall the Software;
+  * destroy all copies;
+  * discontinue all access.
+
+Sections concerning ownership, confidentiality, intellectual property, warranty
+disclaimers, liability limitations, indemnification, governing law, dispute
+resolution, and reservation of rights survive termination.
+
+17. DISCLAIMER OF WARRANTIES
+
+THE SOFTWARE AND SERVICE ARE PROVIDED "AS IS," "WITH ALL FAULTS," AND "AS AVAILABLE."
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE OWNER DISCLAIMS ALL WARRANTIES, WHETHER
+EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO WARRANTIES
+OF:
+
+  * MERCHANTABILITY;
+  * FITNESS FOR A PARTICULAR PURPOSE;
+  * TITLE;
+  * NON-INFRINGEMENT;
+  * QUIET ENJOYMENT;
+  * ACCURACY;
+  * SECURITY;
+  * RELIABILITY;
+  * AVAILABILITY.
+
+THE OWNER DOES NOT WARRANT THAT THE SOFTWARE WILL OPERATE WITHOUT INTERRUPTION OR
+ERROR.
+
+18. LIMITATION OF LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE OWNER SHALL NOT BE LIABLE FOR ANY:
+
+  * INDIRECT DAMAGES;
+  * INCIDENTAL DAMAGES;
+  * CONSEQUENTIAL DAMAGES;
+  * SPECIAL DAMAGES;
+  * EXEMPLARY DAMAGES;
+  * PUNITIVE DAMAGES;
+  * LOST PROFITS;
+  * LOST BUSINESS;
+  * LOST GOODWILL;
+  * LOST DATA;
+  * BUSINESS INTERRUPTION;
+  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES.
+
+IN NO EVENT SHALL THE OWNER'S TOTAL AGGREGATE LIABILITY EXCEED THE GREATER OF:
+
+  (A) THE AMOUNT PAID FOR THE SOFTWARE DURING THE PRECEDING TWELVE MONTHS; OR
+  (B) TEN UNITED STATES DOLLARS (US $10.00).
+
+19. INDEMNIFICATION
+
+The User shall defend, indemnify, and hold harmless the Owner and the Owner's
+licensees, officers, employees, agents, successors, and assigns from and against any
+and all claims, demands, actions, proceedings, losses, damages, liabilities,
+settlements, judgments, fines, penalties, costs, and expenses (including reasonable
+attorneys' fees and costs of defense) arising out of or relating to:
+
+  * the User's use or misuse of the Software or Service;
+  * the User's breach of this Agreement or the AUP;
+  * the User's violation of any applicable law or regulation;
+  * the User's infringement or misappropriation of any third-party right;
+  * any content, data, instruction, or system the User submits to or governs through
+    the Software or Service; and
+  * any action the User authorizes, approves, or executes through the Software.
+
+The Owner shall provide the User with reasonably prompt notice of any claim subject to
+indemnification and may, at the Owner's election and expense, participate in the
+defense with counsel of the Owner's choosing. The User shall not settle any claim in a
+manner that imposes any obligation, admission, or liability on the Owner without the
+Owner's prior written consent.
+
+20. FORCE MAJEURE
+
+The Owner shall not be liable for any delay or failure to perform resulting from
+causes beyond the Owner's reasonable control, including but not limited to acts of
+God, natural disaster, fire, flood, earthquake, epidemic or pandemic, war, terrorism,
+civil unrest, labor dispute, governmental action, embargo, sanctions, change in law,
+failure or degradation of third-party services, cloud or hosting provider outage,
+network or telecommunications failure, power failure, denial-of-service attack,
+security incident, or supply-chain disruption.
+
+Performance obligations affected by such an event are suspended for the duration of
+the event. This section does not excuse any payment obligation already accrued.
+
+21. EXPORT COMPLIANCE
+
+The User agrees to comply with all applicable export control laws, sanctions laws, and
+regulations of the United States and other applicable jurisdictions.
+
+The User represents that it is not located in, organized under the laws of, or
+ordinarily resident in any jurisdiction subject to comprehensive U.S. sanctions, and
+is not identified on any U.S. government restricted-party list. The User shall not
+export, re-export, or transfer the Software in violation of applicable law.
+
+22. U.S. GOVERNMENT RESTRICTED RIGHTS
+
+The Software is a "commercial product" as that term is defined at 48 C.F.R. 2.101,
+consisting of "commercial computer software" and "commercial computer software
+documentation" as such terms are used in 48 C.F.R. 12.212.
+
+Consistent with 48 C.F.R. 12.212 and 48 C.F.R. 227.7202-1 through 227.7202-4, all
+U.S. Government end users acquire the Software with only those rights set forth in
+this Agreement. Any use, modification, reproduction, release, performance, display, or
+disclosure of the Software by the U.S. Government shall be governed solely by the
+terms of this Agreement and shall be prohibited except to the extent expressly
+permitted herein. Unpublished rights are reserved under the copyright laws of the
+United States.
+
+23. GOVERNING LAW
+
+This Agreement shall be governed exclusively by the laws of the State of Wyoming,
+United States, without regard to conflict-of-law principles.
+
+Subject to section 24, the parties consent to the exclusive jurisdiction and venue of
+the state and federal courts located within Wyoming.
+
+24. DISPUTE RESOLUTION; MANDATORY ARBITRATION; CLASS ACTION WAIVER
+
+PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT
+TO FILE A LAWSUIT IN COURT AND TO HAVE A JURY TRIAL.
+
+To the maximum extent permitted by applicable law, any dispute, claim, or controversy
+arising out of or relating to this Agreement, the Software, or the Service shall be
+resolved by final and binding individual arbitration administered under the rules of a
+recognized arbitration provider, before a single arbitrator, seated in Wyoming, and
+governed by the Federal Arbitration Act.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, EACH PARTY WAIVES ANY RIGHT TO BRING OR
+PARTICIPATE IN A CLASS, COLLECTIVE, CONSOLIDATED, OR REPRESENTATIVE ACTION. The
+arbitrator may not consolidate claims or preside over any form of representative
+proceeding.
+
+Notwithstanding the foregoing, either party may (a) bring an individual claim in small
+claims court, and (b) seek temporary or permanent injunctive or other equitable relief
+in a court of competent jurisdiction to protect intellectual property, confidential
+information, or trade secrets, without first submitting to arbitration.
+
+This section does not apply to the extent applicable law prohibits its enforcement,
+and shall not apply to any User to whom mandatory arbitration or class-action waiver
+is unenforceable under mandatory consumer-protection law in that User's jurisdiction.
+If this section is held unenforceable in whole or in part, the remainder of this
+Agreement remains in effect and disputes shall proceed under section 23.
+
+25. ELECTRONIC ACCEPTANCE AND SIGNATURE
+
+The User agrees that installing, copying, downloading, accessing, authenticating to,
+or using the Software or Service, or clicking or executing any command indicating
+acceptance, constitutes the User's electronic signature and manifests the User's
+assent to be legally bound by this Agreement to the same extent as a handwritten
+signature.
+
+The parties consent to conduct business electronically pursuant to the U.S. Electronic
+Signatures in Global and National Commerce Act (E-SIGN), 15 U.S.C. 7001 et seq., and
+applicable state enactments of the Uniform Electronic Transactions Act.
+
+The Owner's records of acceptance, authentication, and use, including logs, timestamps,
+and cryptographic attestations, shall constitute admissible evidence of the User's
+assent, absent clear evidence of error.
+
+26. SEVERABILITY
+
+If any provision of this Agreement is held invalid or unenforceable, the remaining
+provisions shall remain in full force and effect, and the invalid provision shall be
+modified to the minimum extent necessary to render it enforceable while preserving the
+parties' original intent.
+
+27. WAIVER
+
+Failure by the Owner to enforce any provision shall not constitute a waiver of future
+enforcement.
+
+28. ENTIRE AGREEMENT
+
+This Agreement, together with the AUP incorporated by reference, constitutes the
+complete and exclusive agreement governing the Software and supersedes all prior oral
+or written communications concerning the Software unless superseded by a separate
+written agreement executed by the Owner.
+
+29. RESERVATION OF RIGHTS
+
+All rights not expressly granted under this Agreement are reserved exclusively by
+Joshua Stone.
+
+No rights shall arise through implication, estoppel, industry practice, prior dealings,
+or otherwise.
+
+--------------------------------------------------------------------------------
+
+Licensing Inquiries / Designated Copyright Agent
+
+Joshua Stone
+Email: josh@fanzunlimited.com

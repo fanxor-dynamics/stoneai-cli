@@ -1,5 +1,18 @@
 # @stoneai/cli
 
+> ## Proprietary and Confidential — Not Open Source
+>
+> StoneAI is proprietary technology owned by Joshua Stone and exclusively licensed to
+> FanXora Innovation & Technology Group LLC. FanXor Dynamics LLC serves as the authorized
+> technology operator, and FanXus Omnivations LLC serves as an authorized
+> commercial reseller and distributor.
+>
+> No source-code rights, ownership rights, redistribution rights, sublicensing
+> rights, or reverse-engineering rights are granted except through an executed
+> written agreement.
+>
+> **FANXORA RESTRICTED: CROWN-JEWEL TECHNOLOGY**
+
 > **StoneAI — the Covenant Engine.** Govern autonomous systems from your terminal.
 > *The AI decides. The human consents. The customer acts.*
 
@@ -26,5 +39,5 @@ stoneai covenant approve <id>
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).
 
 ## License
-Proprietary — © 2026 FanXor Dynamics LLC. All rights reserved. See [`LICENSE`](./LICENSE).
+Proprietary — (c) 2026 Joshua Stone. All rights reserved. Exclusively licensed to FanXora Innovation & Technology Group LLC. See [`LICENSE`](./LICENSE).
 Home: **wroteinstone.com**

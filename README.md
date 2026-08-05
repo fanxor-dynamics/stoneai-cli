@@ -23,6 +23,15 @@ stoneai decree "deploy recsys-v1"
 stoneai covenant approve <id>
 ```
 
+Generate and validate cradle-to-grave issue evidence offline:
+
+```bash
+stoneai issue template > issue-record.md
+stoneai issue validate issue-record.md
+stoneai issue render --symptoms "..." --root-cause "..." --fix "..." --results "..." --preventative-measures "..." --future-outlook "..."
+```
+
+
 ## Commands
 | | |
 |---|---|
@@ -34,6 +43,10 @@ stoneai covenant approve <id>
 | `stoneai audit` | the hash-chained, append-only ledger |
 | `stoneai usage` / `plans` | metering + subscription tiers |
 | `stoneai upgrade [plan]` | open checkout to subscribe |
+| `stoneai issue template` | print the six-field Issue Resolution Record skeleton |
+| `stoneai issue render [--json] ...` | generate Markdown or JSON issue evidence |
+| `stoneai issue validate <file> [--json]` | verify required issue evidence before closure |
+| `stoneai issue doctor [--json]` | verify offline template/schema readiness |
 
 ## Security
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).

@@ -43,7 +43,7 @@ test('scoped package is explicitly published as public', () => {
 test('files allowlist ships the client and nothing else', () => {
   assert.deepEqual(
     [...pkg.files].sort(),
-    ['LICENSE', 'README.md', 'SECURITY.md', 'bin', 'lib'],
+    ['LICENSE', 'README.md', 'SECURITY.md', 'bin', 'docs', 'lib', 'templates'],
   );
   assert.ok(!pkg.files.includes('test'), 'tests must never ship');
   assert.ok(!pkg.files.includes('.github'), 'workflows must never ship');

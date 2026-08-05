@@ -88,3 +88,30 @@ run the CLI with `sudo`; fix ownership with
 
 `stoneai config set base_url <url>`, or export `STONEAI_BASE_URL`. Confirm with
 `stoneai config`, which prints the resolved config with the API key omitted.
+
+## Issue Resolution Records
+
+### `missing required fields` during `stoneai issue validate`
+
+The record is not closeable yet. Fill every required section:
+Symptoms, Root cause, Fix, Results, Preventative measures, and Future outlook.
+If the root cause is not proven, leave the issue open with `Root cause: unproven`
+and name the next probe in Future outlook.
+
+### `invalid fields: symptoms`
+
+The validator rejects placeholder values such as `TODO`, `TBD`, `n/a`,
+`unknown`, `none`, `placeholder`, and `fixme`. Replace placeholders with the
+observed signal, or keep the issue open until the signal is known.
+
+### Repeatable issue with docs-only prevention
+
+The ch.203 standard expects repeatable issue classes to receive at least one
+enforcement-layer preventative measure: CI, Cedar, runtime probe, synthetic
+monitor, lint, schema guard, or invariant test. Use docs/runbooks as secondary
+controls, not the only guardrail.
+
+### Need machine-readable output
+
+Use `--json` on `render`, `validate`, and `doctor`. JSON mode is stable and
+does not require auth, network, keychain access, or customer data ingestion.

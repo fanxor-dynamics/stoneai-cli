@@ -15,6 +15,8 @@
   "files": [
     "bin",
     "lib",
+    "templates",
+    "docs",
     "README.md",
     "SECURITY.md",
     "LICENSE"
@@ -30,7 +32,10 @@
   "homepage": "https://wroteinstone.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fanxor-dynamics/stoneai-cli"
+    "url": "git+https://github.com/fanxor-dynamics/stoneai-cli.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "bugs": {
     "url": "https://github.com/fanxor-dynamics/stoneai-cli/issues",
@@ -38,5 +43,5 @@
   },
   "author": "Joshua Stone",
   "license": "SEE LICENSE IN LICENSE",
-  "private": true
+  "private": false
 }

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stoneai.fanz.website/schemas/issue-resolution-record.schema.json",
+  "title": "Issue Resolution Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "symptoms",
+    "root_cause",
+    "fix",
+    "results",
+    "preventative_measures",
+    "future_outlook"
+  ],
+  "properties": {
+    "symptoms": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root_cause": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fix": {
+      "type": "string",
+      "minLength": 1
+    },
+    "results": {
+      "type": "string",
+      "minLength": 1
+    },
+    "preventative_measures": {
+      "type": "string",
+      "minLength": 1
+    },
+    "future_outlook": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

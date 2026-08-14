@@ -4,7 +4,8 @@
   "description": "StoneAI \u2014 the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
   "type": "module",
   "bin": {
-    "stoneai": "bin/stoneai.js"
+    "stoneai": "bin/stoneai.js",
+    "stone": "bin/stoneai.js"
   },
   "engines": {
     "node": ">=18"

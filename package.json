@@ -31,7 +31,7 @@
   "homepage": "https://wroteinstone.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fanxor-dynamics/stoneai-cli"
+    "url": "git+https://github.com/fanxor-dynamics/stoneai-cli.git"
   },
   "bugs": {
     "url": "https://github.com/fanxor-dynamics/stoneai-cli/issues",

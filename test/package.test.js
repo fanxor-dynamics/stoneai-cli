@@ -36,8 +36,15 @@ test('license field points at the proprietary LICENSE file', () => {
   assert.match(license, /FanXor Dynamics LLC/, 'LICENSE must name the owning entity');
 });
 
-test('scoped package is explicitly published as public', () => {
-  assert.equal(pkg.publishConfig?.access, 'public');
+// The package is NOT published to the public registry. c643ab4 deliberately
+// swapped `publishConfig.access: public` for `private: true` in the same pass
+// that declared the code proprietary crown-jewel technology — npm refuses to
+// publish a private package, which is the point. This test pins that posture so
+// a future red-CI cleanup can't quietly restore public publishing; flipping it
+// back is a distribution decision, not a test fix.
+test('proprietary package is withheld from the public registry', () => {
+  assert.equal(pkg.private, true, 'private:true is what blocks `npm publish`');
+  assert.equal(pkg.publishConfig?.access, undefined, 'must not re-declare public access');
 });
 
 test('files allowlist ships the client and nothing else', () => {

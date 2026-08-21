@@ -11,7 +11,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { run } from '../lib/cli.js';
+import { run, formatCliError, formatUsageSummary, formatProviderDegradation } from '../lib/cli.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
@@ -73,4 +73,60 @@ test('--help and -h are both honored', async () => {
     const output = await capture([flag]);
     assert.match(output, /StoneAI/, `${flag} did not print help`);
   }
+});
+
+test('structured quota errors render actionable CLI diagnostics', () => {
+  const err = new Error('quota_exceeded');
+  err.status = 402;
+  err.payload = {
+    success: false,
+    error: 'quota_exceeded',
+    code: 'stoneai_account_quota_exhausted',
+    category: 'account_quota',
+    message: 'Plan limit reached (50/50 decrees on the trial plan). Upgrade to continue.',
+    plan: 'trial',
+    used: 50,
+    included: 50,
+    upgrade_url: 'https://wroteinstone.com/app#billing',
+    request_id: 'req_test',
+  };
+
+  const rendered = formatCliError(err);
+
+  assert.match(rendered, /StoneAI account quota exhausted/);
+  assert.match(rendered, /trial/);
+  assert.match(rendered, /50\/50/);
+  assert.match(rendered, /https:\/\/wroteinstone\.com\/app#billing/);
+  assert.match(rendered, /req_test/);
+});
+
+test('usage summary renders backend decree count accurately', () => {
+  const rendered = formatUsageSummary({ plan: 'trial', decrees: 50, approvals: 0 });
+
+  assert.match(rendered, /plan trial/);
+  assert.match(rendered, /used 50/);
+  assert.doesNotMatch(rendered, /used 0/);
+});
+
+test('a decree raised on a dead council surfaces the provider failure', () => {
+  const rendered = formatProviderDegradation({
+    evidence: [
+      { action: 'harmless probe' },
+      {
+        type: 'provider_failures',
+        failures: [
+          { provider: 'openrouter', model: 'qwen/test', status: 401, category: 'upstream_provider_auth', message: 'User not found.' },
+        ],
+      },
+    ],
+  });
+
+  assert.match(rendered, /council degraded/i);
+  assert.match(rendered, /openrouter/);
+  assert.match(rendered, /upstream_provider_auth/);
+  assert.match(rendered, /401/);
+});
+
+test('a healthy council adds no degradation notice', () => {
+  assert.equal(formatProviderDegradation({ evidence: [{ action: 'probe' }] }), '');
 });

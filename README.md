@@ -27,4 +27,4 @@ Thin client · zero dependencies · zero telemetry · OS-keychain credential sto
 
 ## License
 Proprietary — © 2026 FanXor Dynamics LLC. All rights reserved. See [`LICENSE`](./LICENSE).
-Home: **wroteinstone.com**
+Home: **writteninstone.io**

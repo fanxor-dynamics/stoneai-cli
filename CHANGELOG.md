@@ -6,6 +6,24 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-08-16
+
+### Added
+- Risk-tiered execution entrypoint: `stone run "<action>"`.
+- Provider discovery, health, credit, model, and explicit test commands.
+- Deterministic model routing and failover commands that do not require inference.
+- Specialist-agent list, status, spawn, stop, and resume commands.
+
+### Preserved
+- High-risk work still requires a locally signed Ed25519 Covenant decision.
+- Prohibited work remains hard-denied server-side.
+- The CLI remains zero-dependency, zero-telemetry, and never prints provider credentials.
+
+### Fixed
+- `STONEAI_BASE_URL` now has documented environment-override precedence over saved config.
+- Restored the package's provenance-compatible repository URL and public publish metadata.
+- Reconciled the stale lockfile version with the package version.
+
 ## [0.1.2] — 2026-07-19
 
 First release published from CI. Carries a provenance attestation; 0.1.0 and
@@ -63,6 +81,7 @@ Published manually. No provenance attestation.
 Initial release. Published manually. No provenance attestation.
 
 [Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.1...HEAD
+[0.2.0]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.2...v0.2.0
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1
 [0.1.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.0
 [0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2

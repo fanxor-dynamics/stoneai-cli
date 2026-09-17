@@ -4,9 +4,10 @@ Copyright © 2026 FanXor Dynamics LLC.
 
 ## Shape
 
-A thin client: roughly 470 lines across six modules, zero runtime dependencies,
-zero telemetry. All governance logic — decree evaluation, covenant state, ledger
-hashing — runs server-side. The CLI authenticates, presents, and signs.
+A thin client with zero runtime dependencies and zero telemetry. All governance,
+provider discovery, routing, execution state, checkpointing, and ledger hashing
+runs server-side. The CLI authenticates, presents, and signs high-risk Covenant
+decisions with the device-held key.
 
 ```
 bin/stoneai.js        entry point; catches, formats, exits non-zero
@@ -52,3 +53,6 @@ See [`DEPLOYMENT.md`](./DEPLOYMENT.md).
   call the user asked for, to the host the user configured.
 - **Thin by contract.** No proprietary logic ships. Reading this package reveals
   the API shape and nothing more — which is what makes the source safe to read.
+- **Routing survives inference failure.** `providers`, `model`, and agent-state
+  commands call deterministic control-plane endpoints; no model must answer for
+  StoneAI to assess capacity, classify risk, or preserve a run checkpoint.

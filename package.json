@@ -30,7 +30,7 @@
     "autonomous-agents",
     "stoneai"
   ],
-  "homepage": "https://wroteinstone.com",
+  "homepage": "https://writteninstone.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fanxor-dynamics/stoneai-cli.git"

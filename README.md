@@ -40,4 +40,4 @@ Thin client · zero dependencies · zero telemetry · OS-keychain credential sto
 
 ## License
 Proprietary — (c) 2026 Joshua Stone. All rights reserved. Exclusively licensed to FanXora Innovation & Technology Group L.L.C.. See [`LICENSE`](./LICENSE).
-Home: **wroteinstone.com**
+Home: **writteninstone.io**

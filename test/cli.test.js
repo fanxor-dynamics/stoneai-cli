@@ -87,7 +87,7 @@ test('structured quota errors render actionable CLI diagnostics', () => {
     plan: 'trial',
     used: 50,
     included: 50,
-    upgrade_url: 'https://wroteinstone.com/app#billing',
+    upgrade_url: 'https://writteninstone.io/app#billing',
     request_id: 'req_test',
   };
 
@@ -96,7 +96,7 @@ test('structured quota errors render actionable CLI diagnostics', () => {
   assert.match(rendered, /StoneAI account quota exhausted/);
   assert.match(rendered, /trial/);
   assert.match(rendered, /50\/50/);
-  assert.match(rendered, /https:\/\/wroteinstone\.com\/app#billing/);
+  assert.match(rendered, /https:\/\/writteninstone\.io\/app#billing/);
   assert.match(rendered, /req_test/);
 });
 

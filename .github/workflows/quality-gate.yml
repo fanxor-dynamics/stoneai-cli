@@ -1,7 +1,4 @@
 # Quality gate — runs on every PR and every push to main.
-#
-# Separate from publish.yml on purpose: this gate should fail loudly and often
-# during development, while publish.yml runs rarely and must be boring.
 
 name: Quality Gate
 
@@ -23,8 +20,8 @@ jobs:
       matrix:
         node-version: [18.x, 20.x, 22.x]
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
@@ -35,8 +32,8 @@ jobs:
     name: Dependency audit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22.x
           cache: npm
@@ -48,15 +45,12 @@ jobs:
     name: Package integrity
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22.x
           cache: npm
       - run: npm ci
-
-      # The published tarball is the actual product. Assert its contents rather
-      # than trusting that `files` and `.npmignore` still agree with each other.
       - name: Assert tarball contents
         run: |
           npm pack --dry-run --json > /tmp/pack.json
@@ -64,7 +58,6 @@ jobs:
             const pack = require("/tmp/pack.json")[0];
             const files = pack.files.map(f => f.path).sort();
             console.log("Tarball contents:\n  " + files.join("\n  "));
-
             const forbidden = files.filter(f =>
               /^(test|\.github)\//.test(f) ||
               /(^|\/)\.env/.test(f) ||
@@ -74,7 +67,6 @@ jobs:
               console.error("::error::Files that must never ship are in the tarball: " + forbidden.join(", "));
               process.exit(1);
             }
-
             for (const required of ["package.json", "README.md", "LICENSE", "SECURITY.md", "bin/stoneai.js"]) {
               if (!files.includes(required)) {
                 console.error("::error::Required file missing from tarball: " + required);
@@ -83,10 +75,6 @@ jobs:
             }
             console.log("\nPackage integrity OK — " + files.length + " files.");
           '
-
-      # Provenance is rejected at publish time if package.json `repository` does
-      # not match the publishing repo exactly. Catching that on a PR is cheap;
-      # catching it during a release is not.
       - name: Assert repository field matches this repo
         run: |
           REPO_URL="$(node -p "require('./package.json').repository.url")"

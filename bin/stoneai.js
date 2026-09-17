@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /*
- * Copyright (c) 2026 Joshua Stone. All Rights Reserved.
+ * © 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved.
  *
- * StoneAI is proprietary and confidential technology owned by Joshua Stone
- * and exclusively licensed to FanXora Innovation & Technology Group LLC.
- * FanXor Dynamics LLC is an authorized technology operator.
+ * StoneAI™ is proprietary technology of FanXora Innovation & Technology Group L.L.C.
+ * FanXor Dynamics LLC operates StoneAI™ under authorization.
  *
- * Unauthorized access, copying, disclosure, modification, reverse engineering,
- * redistribution, sublicensing, or use is prohibited except as expressly
- * authorized in writing.
+ * Access and use are restricted to authorized users, approved business purposes,
+ * and applicable agreements. Unauthorized copying, disclosure, modification,
+ * redistribution, sublicensing, or circumvention of security controls is prohibited.
+ * Reverse engineering is prohibited except where such restriction is expressly
+ * prohibited by applicable law.
  *
- * FANXORA RESTRICTED: CROWN-JEWEL TECHNOLOGY
+ * FANXORA RESTRICTED · PROPRIETARY TECHNOLOGY
  */
 // @stoneai/cli entry point. Thin client — holds no secrets, calls the StoneAI API.
 import { run, formatCliError } from '../lib/cli.js';

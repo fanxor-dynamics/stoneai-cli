@@ -1,6 +1,6 @@
 # Security — @stoneai/cli
 
-**(c) 2026 Joshua Stone.** Exclusively licensed to FanXora Innovation & Technology Group L.L.C.; operated by FanXor Dynamics LLC. Report vulnerabilities privately to **josh@fanzunlimited.com** — never a public issue.
+**© 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved.** StoneAI™ is operated by FanXor Dynamics LLC under authorization. Report vulnerabilities privately to **josh@fanzunlimited.com** — never through a public issue.
 
 ## Design posture
 - **Thin client.** The CLI holds no proprietary logic and no service secrets. All governance runs server-side; the CLI only calls the StoneAI API. Reading this package reveals the API shape, nothing more.

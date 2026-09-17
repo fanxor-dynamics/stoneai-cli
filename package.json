@@ -1,7 +1,7 @@
 {
   "name": "@stoneai/cli",
   "version": "0.1.2",
-  "description": "StoneAI \u2014 the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
+  "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
   "type": "module",
   "bin": {
     "stoneai": "bin/stoneai.js",
@@ -28,16 +28,15 @@
     "autonomous-agents",
     "stoneai"
   ],
-  "homepage": "https://wroteinstone.com",
+  "homepage": "https://writteninstone.io",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fanxor-dynamics/stoneai-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/fanxor-dynamics/stoneai-cli/issues",
-    "email": "josh@fanzunlimited.com"
+    "url": "https://github.com/fanxor-dynamics/stoneai-cli/issues"
   },
-  "author": "Joshua Stone",
+  "author": "FanXora Innovation & Technology Group L.L.C.",
   "license": "SEE LICENSE IN LICENSE",
   "private": true
 }

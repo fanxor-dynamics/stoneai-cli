@@ -6,6 +6,22 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.3] — 2026-09-16
+
+### Changed
+- Canonical service and package homepage moved to `https://writteninstone.io`.
+- CLI help output and default backend now use `writteninstone.io`.
+- Enterprise proprietary notices now identify FanXora Innovation & Technology Group L.L.C. as the company-level rights holder/licensor and FanXor Dynamics LLC as the authorized operator.
+- Removed personal-name ownership attribution from active package metadata and legal/security notices.
+- Replaced the previous CLI license with the enterprise StoneAI CLI Proprietary Software License Agreement v1.1, retaining the pending-attorney-review notice.
+- Restored public npm publication for the scoped package with `publishConfig.access: public` and `private: false`.
+- Package author metadata now identifies FanXora Innovation & Technology Group L.L.C.
+
+### Security
+- Removed stale "CROWN-JEWEL TECHNOLOGY" source classifications in favor of `FANXORA RESTRICTED · PROPRIETARY TECHNOLOGY`.
+- Qualified reverse-engineering restrictions to account for applicable-law exceptions.
+- Preserved OIDC Trusted Publishing and npm provenance; no long-lived npm token is required.
+
 ## [0.1.2] — 2026-07-19
 
 First release published from CI. Carries a provenance attestation; 0.1.0 and
@@ -28,31 +44,20 @@ First release published from CI. Carries a provenance attestation; 0.1.0 and
 - **Provenance attestations.** Releases from this point forward carry a Sigstore
   attestation binding the tarball to its exact source commit and workflow run
   (the "Built and signed on GitHub Actions" badge on npm).
-- Test suite (`npm test`, 13 tests) covering command dispatch and the manifest
-  invariants that README and SECURITY promise — notably zero runtime
-  dependencies and the tests-never-ship allowlist.
+- Test suite (`npm test`) covering command dispatch and manifest invariants.
 - `quality-gate.yml`: multi-version tests, `npm audit`, tarball-contents
   assertion, and a check that `repository` matches the publishing repo.
-- `package-lock.json`, so `npm ci` resolves. Its absence was silently failing
-  every CI run since the workflow was introduced.
+- `package-lock.json`, so `npm ci` resolves.
 - `CONTRIBUTING.md`, `CHANGELOG.md`, `docs/`, `CODEOWNERS`, `dependabot.yml`.
 
 ### Changed
-- `license` metadata field: `UNLICENSED` → `SEE LICENSE IN LICENSE`. **No change
-  to the legal terms** — the package remains proprietary and the `LICENSE` file
-  is untouched. The previous value rendered on npm as a bare "UNLICENSED" badge,
-  implying no terms existed; the SPDX form links readers to the actual grant.
-- `repository.url` normalized to the `git+https://…​.git` form required for
-  provenance to be accepted.
+- `license` metadata field: `UNLICENSED` → `SEE LICENSE IN LICENSE`.
+- `repository.url` normalized to the `git+https://…​.git` form required for provenance.
 - Added a `bugs` field so npm renders an issue-reporting link.
 
 ### Fixed
-- CI was red on `main` from its first run. `npm ci` aborted for want of a
-  lockfile and `npm test` errored with "Missing script: test". Both are
-  resolved; the gate now passes on Node 18, 20, and 22.
-- README and SECURITY both claimed releases were provenance-signed while 0.1.0
-  and 0.1.1 had in fact been published by hand with no attestation. The claims
-  are now scoped to the versions they are true of.
+- CI was red on `main` from its first run. `npm ci` aborted for want of a lockfile and `npm test` errored with "Missing script: test". Both are resolved.
+- README and SECURITY claims about provenance were scoped to the versions they apply to.
 
 ## [0.1.1] — 2026-07-13
 
@@ -62,7 +67,8 @@ Published manually. No provenance attestation.
 
 Initial release. Published manually. No provenance attestation.
 
-[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.3...HEAD
+[0.1.3]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.3
+[0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1
 [0.1.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.0
-[0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2

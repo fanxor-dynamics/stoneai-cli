@@ -1,17 +1,12 @@
 # @stoneai/cli
 
-> ## Proprietary and Confidential — Not Open Source
+> ## Proprietary and Confidential — Restricted Technology
 >
-> StoneAI is proprietary technology owned by Joshua Stone and exclusively licensed to
-> FanXora Innovation & Technology Group L.L.C.. FanXor Dynamics LLC serves as the authorized
-> technology operator, and FanXus Omnivations L.L.C. serves as an authorized
-> commercial reseller and distributor.
+> StoneAI™ is proprietary technology of FanXora Innovation & Technology Group L.L.C. FanXor Dynamics LLC operates StoneAI™ on behalf of FanXora Innovation & Technology Group L.L.C. under that company’s authorization and applicable policies and controls. FanXus Omnivations L.L.C. may act as an authorized commercial reseller or distributor where expressly authorized.
 >
-> No source-code rights, ownership rights, redistribution rights, sublicensing
-> rights, or reverse-engineering rights are granted except through an executed
-> written agreement.
+> Access and use are limited to authorized users, approved business purposes, and applicable agreements. No source-code rights, ownership rights, redistribution rights, sublicensing rights, or reverse-engineering rights are granted except through an executed written agreement or where applicable law expressly provides otherwise.
 >
-> **FANXORA RESTRICTED: CROWN-JEWEL TECHNOLOGY**
+> **FANXORA RESTRICTED · PROPRIETARY TECHNOLOGY**
 
 > **StoneAI — the Covenant Engine.** Govern autonomous systems from your terminal.
 > *The AI decides. The human consents. The customer acts.*
@@ -39,5 +34,5 @@ stoneai covenant approve <id>
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).
 
 ## License
-Proprietary — (c) 2026 Joshua Stone. All rights reserved. Exclusively licensed to FanXora Innovation & Technology Group L.L.C.. See [`LICENSE`](./LICENSE).
-Home: **wroteinstone.com**
+Proprietary — © 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved. Operated by FanXor Dynamics LLC under authorization. See [`LICENSE`](./LICENSE).
+Home: **writteninstone.io**

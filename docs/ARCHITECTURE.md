@@ -2,6 +2,17 @@
 
 Copyright © 2026 FanXor Dynamics LLC.
 
+
+## Convergence directive
+
+`@stoneai/cli` is a thin client to the converged Stone authority. The governing
+directive is the `STONE_CONVERGENCE_DIRECTIVE`, an internal StoneAI platform
+document (`github.com/FanzCEO/app`) available to authorized operators.
+
+The CLI must not duplicate routing, financial, policy, dossier or ledger truth.
+It authenticates, presents, signs and calls the Stone API; server-side Stone owns
+the command, financial, security, compliance and execution planes.
+
 ## Shape
 
 A thin client: roughly 470 lines across six modules, zero runtime dependencies,

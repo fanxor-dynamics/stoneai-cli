@@ -10,8 +10,8 @@ permissions:
 
 jobs:
   probe:
-    name: Organization self-hosted runner probe
-    runs-on: [self-hosted, linux, own-ci]
+    name: GitHub-hosted runner probe
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Confirm runner allocation

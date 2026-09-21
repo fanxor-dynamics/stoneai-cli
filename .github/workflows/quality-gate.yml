@@ -1,4 +1,8 @@
 # Quality gate — runs on every PR and every push to main.
+#
+# GitHub-hosted runners have been failing before job start for this org.
+# Use the existing organization-owned Linux runner pool that already backs
+# StoneAI CI, while preserving the npm Trusted Publishing workflow separately.
 
 name: Quality Gate
 
@@ -14,7 +18,7 @@ permissions:
 jobs:
   test:
     name: Test (Node ${{ matrix.node-version }})
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, own-ci]
     strategy:
       fail-fast: false
       matrix:
@@ -30,7 +34,7 @@ jobs:
 
   audit:
     name: Dependency audit
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, own-ci]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -43,7 +47,7 @@ jobs:
 
   package:
     name: Package integrity
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, own-ci]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0

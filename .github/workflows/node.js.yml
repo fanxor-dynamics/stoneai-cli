@@ -1,6 +1,4 @@
 # Clean-install and test @stoneai/cli across supported Node versions.
-# Uses the organization-owned runner pool because GitHub-hosted jobs have
-# been failing before execution for this organization.
 
 name: Node.js CI
 
@@ -15,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: [self-hosted, linux, own-ci]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]

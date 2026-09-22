@@ -6,27 +6,21 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [0.1.5] — 2026-09-22
+## [0.1.6] — 2026-09-22
 
 ### Added
-- Authenticated `stoneai intelligence capabilities` surface for the Stone Intelligence Fabric capability manifest.
-- Governed Intelligence Fabric/Hugging Face registry commands remain available for operator discovery, assets, routes, tools and lifecycle state.
+- `stoneai esther ["prompt"]` exposes Esther first-party governed intelligence through the StoneAI control plane.
+- `stoneai intelligence capabilities` exposes the authenticated Stone Intelligence Fabric capability manifest.
+- Governed Hugging Face Nexus administration remains available through `stoneai intelligence status|scan|assets|routes|tools|state`.
 
 ### Changed
-- Release metadata synchronized across package.json, package-lock.json and CLI version output.
-- Intelligence Fabric remains subordinate to authenticated Stone control-plane authority; discovery does not self-promote into execution.
+- Release metadata synchronized across `package.json`, `package-lock.json`, and CLI version output at 0.1.6.
+- HF discovery and model lifecycle remain subordinate to StoneAI governance; discovery never self-promotes into execution.
+- Admin requests use the governed `x-admin-token` header without persisting the token in CLI configuration.
 
-
-## [0.1.5] — 2026-09-22
-
-### Added
-- Governed Intelligence Fabric CLI surface for authenticated capability discovery.
-- Hugging Face Nexus administration through `stoneai intelligence status|scan|assets|routes|tools|state`.
-- Admin requests support the governed `x-admin-token` header without persisting the token in CLI configuration.
-
-### Changed
-- CLI release advanced to 0.1.5 so npm tracks the deployed StoneAI Intelligence Fabric and HF Nexus runtime.
-- CI workflows target the Stone self-hosted runner pool because GitHub-hosted jobs were failing before runner allocation.
+### Security
+- Consequential actions remain gated by StoneAI authority; Esther and external model intelligence are advisory.
+- npm Trusted Publishing remains OIDC/provenance based with no long-lived npm token in the repository.
 
 ## [0.1.3] — 2026-09-16
 
@@ -89,11 +83,11 @@ Published manually. No provenance attestation.
 
 Initial release. Published manually. No provenance attestation.
 
-[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.5...HEAD
-[0.1.5]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.5
+[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.6...HEAD
 [0.1.3]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.3
 [0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1
 [0.1.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.0
 
-[0.1.5]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.4...v0.1.5
+
+[0.1.6]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.6

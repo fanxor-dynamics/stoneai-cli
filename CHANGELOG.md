@@ -4,7 +4,7 @@ All notable changes to `@stoneai/cli` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Unreleased]\n\n## [0.1.4] — 2026-09-22\n\n### Added\n- Governed Hugging Face Nexus commands for Radar scans, inventory, model filtering, evaluation/approval queues, TEVV plans, route manifests, tool manifests, and lifecycle state transitions.\n- HF operator commands use the existing server-side governance endpoints and require `STONEAI_ADMIN_TOKEN`; the token is never written to CLI config.\n\n### Changed\n- CLI release version advanced to 0.1.4 so the npm surface tracks the deployed HF Nexus runtime.
 
 ## [0.1.3] — 2026-09-16
 

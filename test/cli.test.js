@@ -51,7 +51,7 @@ test('help lists every documented command', async () => {
   const output = await capture(['help']);
   for (const command of [
     'login', 'logout', 'whoami', 'decree', 'decrees',
-    'covenant', 'audit', 'usage', 'plans', 'upgrade', 'config',
+    'covenant', 'audit', 'hf', 'usage', 'plans', 'upgrade', 'config',
   ]) {
     assert.ok(output.includes(command), `help output is missing '${command}'`);
   }

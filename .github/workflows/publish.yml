@@ -7,6 +7,12 @@ name: Publish to npm
 on:
   release:
     types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: 'Release tag to publish, e.g. v0.1.6'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -53,10 +59,11 @@ jobs:
       - name: Verify release tag matches package.json version
         run: |
           PKG_VERSION="$(node -p "require('./package.json').version")"
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
-          echo "package.json: $PKG_VERSION | release tag: $GITHUB_REF_NAME"
+          RELEASE_REF="${{ github.event_name == 'workflow_dispatch' && inputs.release_tag || github.ref_name }}"
+          TAG_VERSION="${RELEASE_REF#v}"
+          echo "package.json: $PKG_VERSION | release tag: $RELEASE_REF"
           if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
-            echo "::error::Release tag '${GITHUB_REF_NAME}' resolves to '${TAG_VERSION}' but package.json is '${PKG_VERSION}'."
+            echo "::error::Release tag '${RELEASE_REF}' resolves to '${TAG_VERSION}' but package.json is '${PKG_VERSION}'."
             exit 1
           fi
       - name: Show publish payload

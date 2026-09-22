@@ -29,6 +29,8 @@ stoneai covenant approve <id>
 | `stoneai audit` | the hash-chained, append-only ledger |
 | `stoneai usage` / `plans` | metering + subscription tiers |
 | `stoneai upgrade [plan]` | open checkout to subscribe |
+| `stoneai intelligence capabilities` | authenticated Intelligence Fabric capability manifest |
+| `stoneai intelligence status\|scan\|assets\|routes\|tools\|state` | governed AI/Hugging Face registry administration |
 
 ## Security
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).

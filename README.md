@@ -26,7 +26,7 @@ stoneai covenant approve <id>
 | `stoneai decree "<action>"` | raise a decree — inert until a human signs |
 | `stoneai decrees` | list decrees |
 | `stoneai covenant approve\|deny <id>` | sign the covenant (Ed25519, **device-held key**) |
-| `stoneai audit` | the hash-chained, append-only ledger |
+| `stoneai audit` | the hash-chained, append-only ledger |\n| `stoneai hf status` / `scan` | inspect or trigger the governed Hugging Face Radar |\n| `stoneai hf models` / `assets` | list governed HF inventory (`--capability=...`, `--state=...`) |\n| `stoneai hf evaluating` / `approved` | inspect evaluation and approval queues |\n| `stoneai hf tevv <key>` | generate/show the asset TEVV plan |\n| `stoneai hf routes` / `tools` | inspect governed route and Space/tool manifests |\n| `stoneai hf state <key> <state>` | operator lifecycle transition; requires `STONEAI_ADMIN_TOKEN` |
 | `stoneai usage` / `plans` | metering + subscription tiers |
 | `stoneai upgrade [plan]` | open checkout to subscribe |
 

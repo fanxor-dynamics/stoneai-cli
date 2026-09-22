@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: [self-hosted, stone-ci]
+    runs-on: [self-hosted, linux, own-ci]
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]

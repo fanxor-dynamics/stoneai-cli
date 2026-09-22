@@ -9,23 +9,18 @@ permissions:
   contents: read
 
 jobs:
-  ubuntu:
-    name: Ubuntu 22.04 probe
-    runs-on: ubuntu-22.04
+  stone:
+    name: Stone self-hosted probe
+    runs-on: [self-hosted, stone-ci]
     timeout-minutes: 5
     steps:
-      - run: echo "ubuntu runner allocated"
-
-  macos:
-    name: macOS 14 probe
-    runs-on: macos-14
-    timeout-minutes: 5
-    steps:
-      - run: echo "macos runner allocated"
-
-  windows:
-    name: Windows 2022 probe
-    runs-on: windows-2022
-    timeout-minutes: 5
-    steps:
-      - run: echo "windows runner allocated"
+      - name: Runner allocated
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "stone-ci runner allocated"
+          uname -a
+          command -v node || true
+          command -v npm || true
+          command -v git || true
+          command -v docker || true

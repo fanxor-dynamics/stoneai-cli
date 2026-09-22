@@ -1,26 +1,25 @@
 name: Runner Diagnostic
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  stone:
-    name: Stone self-hosted probe
-    runs-on: [self-hosted, linux, own-ci]
+  hosted:
+    name: GitHub-hosted probe
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Runner allocated
         shell: bash
         run: |
           set -euo pipefail
-          echo "stone-ci runner allocated"
+          echo "github-hosted runner allocated"
           uname -a
-          command -v node || true
-          command -v npm || true
-          command -v git || true
-          command -v docker || true
+          node --version || true
+          npm --version || true
+          git --version || true

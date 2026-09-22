@@ -9,6 +9,17 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [0.1.5] — 2026-09-22
 
 ### Added
+- Authenticated `stoneai intelligence capabilities` surface for the Stone Intelligence Fabric capability manifest.
+- Governed Intelligence Fabric/Hugging Face registry commands remain available for operator discovery, assets, routes, tools and lifecycle state.
+
+### Changed
+- Release metadata synchronized across package.json, package-lock.json and CLI version output.
+- Intelligence Fabric remains subordinate to authenticated Stone control-plane authority; discovery does not self-promote into execution.
+
+
+## [0.1.5] — 2026-09-22
+
+### Added
 - Governed Intelligence Fabric CLI surface for authenticated capability discovery.
 - Hugging Face Nexus administration through `stoneai intelligence status|scan|assets|routes|tools|state`.
 - Admin requests support the governed `x-admin-token` header without persisting the token in CLI configuration.
@@ -84,3 +95,5 @@ Initial release. Published manually. No provenance attestation.
 [0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1
 [0.1.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.0
+
+[0.1.5]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.4...v0.1.5

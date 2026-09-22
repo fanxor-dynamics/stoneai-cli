@@ -11,7 +11,7 @@ permissions:
 jobs:
   stone:
     name: Stone self-hosted probe
-    runs-on: [self-hosted, stone-ci]
+    runs-on: [self-hosted, linux, own-ci]
     timeout-minutes: 5
     steps:
       - name: Runner allocated

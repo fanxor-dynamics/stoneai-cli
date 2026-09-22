@@ -6,6 +6,17 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.1.5] — 2026-09-22
+
+### Added
+- Governed Intelligence Fabric CLI surface for authenticated capability discovery.
+- Hugging Face Nexus administration through `stoneai intelligence status|scan|assets|routes|tools|state`.
+- Admin requests support the governed `x-admin-token` header without persisting the token in CLI configuration.
+
+### Changed
+- CLI release advanced to 0.1.5 so npm tracks the deployed StoneAI Intelligence Fabric and HF Nexus runtime.
+- CI workflows target the Stone self-hosted runner pool because GitHub-hosted jobs were failing before runner allocation.
+
 ## [0.1.3] — 2026-09-16
 
 ### Changed
@@ -67,7 +78,8 @@ Published manually. No provenance attestation.
 
 Initial release. Published manually. No provenance attestation.
 
-[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.5
 [0.1.3]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.3
 [0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1

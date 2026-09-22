@@ -1,7 +1,7 @@
 {
   "name": "@stoneai/cli",
-  "version": "0.1.5",
-  "description": "StoneAI — the Covenant Engine. Govern autonomous systems from your terminal: raise decrees, sign covenants, read the hash-chained ledger.",
+  "version": "0.1.6",
+  "description": "StoneAI governance CLI with decrees, covenants, audit, Intelligence Fabric, and Esther first-party governed intelligence.",
   "type": "module",
   "bin": {
     "stoneai": "bin/stoneai.js",
@@ -26,7 +26,9 @@
     "approval",
     "covenant",
     "autonomous-agents",
-    "stoneai"
+    "stoneai",
+    "esther",
+    "sovereign-ai"
   ],
   "homepage": "https://writteninstone.io",
   "repository": {

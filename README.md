@@ -51,3 +51,19 @@ stoneai esther "Review this architecture for failure modes"
 ```
 
 Esther can reason, analyze, code, and propose. Her output remains advisory; consequential execution still requires the applicable Stone policy and human/institutional authorization. **INTELLIGENCE DOES NOT CREATE AUTHORITY.**
+
+
+## OmniIntelligence
+
+OmniIntelligence is the capability namespace spanning StoneAI's governed intelligence architecture. The CLI is the **OmniCLI** surface.
+
+- OmniControl / OmniGov — authority and policy
+- OmniJudicial — Esther review and intelligence
+- OmniModel / OmniDiscover — governed model registry and discovery
+- OmniProvider / OmniRoute — providers and routing
+- OmniContain / OmniSight — containment and observability
+- OmniTrust / OmniEvidence — provenance and evidence
+- OmniCouncil — deliberation
+- OmniCompute / OmniCost — capacity and economics
+
+These names map onto canonical StoneAI services; they do not create parallel control planes.

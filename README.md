@@ -29,6 +29,7 @@ stoneai covenant approve <id>
 | `stoneai audit` | the hash-chained, append-only ledger |
 | `stoneai usage` / `plans` | metering + subscription tiers |
 | `stoneai upgrade [plan]` | open checkout to subscribe |
+| `stoneai esther "<prompt>"` | ask Esther through the StoneAI-governed intelligence boundary |
 | `stoneai intelligence capabilities` | authenticated Intelligence Fabric capability manifest |
 | `stoneai intelligence status\|scan\|assets\|routes\|tools\|state` | governed AI/Hugging Face registry administration |
 
@@ -38,3 +39,15 @@ Thin client · zero dependencies · zero telemetry · OS-keychain credential sto
 ## License
 Proprietary — © 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved. Operated by FanXor Dynamics LLC under authorization. See [`LICENSE`](./LICENSE).
 Home: **writteninstone.io**
+
+
+## Esther
+
+Esther is StoneAI's first-party sovereign intelligence identity. The CLI sends Esther requests through StoneAI rather than granting the model direct production authority.
+
+```bash
+stoneai esther
+stoneai esther "Review this architecture for failure modes"
+```
+
+Esther can reason, analyze, code, and propose. Her output remains advisory; consequential execution still requires the applicable Stone policy and human/institutional authorization. **INTELLIGENCE DOES NOT CREATE AUTHORITY.**

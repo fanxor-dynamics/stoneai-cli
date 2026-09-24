@@ -4,6 +4,16 @@ All notable changes to `@stoneai/cli` are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Publication status — registry snapshot 2026-09-24
+
+npm has three published versions: **0.1.0**, **0.1.1**, **0.1.6** (`latest`).
+Versions **0.1.2**, **0.1.3**, and **0.2.0** have changelog entries and git tags
+but were never published to npm. The CI publish pipeline (`publish.yml`) has not
+yet produced a successful registry write; all three released versions were
+published manually. None of the published versions carry a Sigstore provenance
+attestation. The 0.1.2 entry's claim of "carries a provenance attestation" is not
+borne out by the registry.
+
 ## [Unreleased]
 
 ## [0.2.0] — 2026-09-24

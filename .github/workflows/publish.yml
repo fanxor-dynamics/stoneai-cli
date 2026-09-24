@@ -69,4 +69,14 @@ jobs:
       - name: Show publish payload
         run: npm publish --dry-run
       - name: Publish
-        run: npm publish
+        run: npm publish --provenance
+      - name: Verify provenance attestation
+        run: |
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          echo "Checking dist.attestations for @stoneai/cli@${PKG_VERSION}…"
+          ATTESTATIONS="$(npm view "@stoneai/cli@${PKG_VERSION}" dist.attestations --json 2>/dev/null || true)"
+          if [ -z "$ATTESTATIONS" ] || [ "$ATTESTATIONS" = "null" ] || [ "$ATTESTATIONS" = "{}" ]; then
+            echo "::error::@stoneai/cli@${PKG_VERSION} was published but dist.attestations is absent — provenance not recorded. Investigate publish step."
+            exit 1
+          fi
+          echo "::notice::Provenance attestation confirmed for @stoneai/cli@${PKG_VERSION}."

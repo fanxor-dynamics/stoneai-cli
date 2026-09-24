@@ -75,6 +75,6 @@ deprecation is the lawful path; unpublish also breaks every lockfile pinning it.
 ## Verifying a published release
 
 ```bash
-npm view @stoneai/cli dist          # attestations block should be present
+npm view @stoneai/cli dist          # dist.attestations absent on manually-published versions; present once CI publishes
 npm audit signatures                # verifies registry signature + provenance
 ```

@@ -50,9 +50,11 @@ CLI transmits, is a change to the security model rather than a feature.
 
 ## Distribution is part of the trust boundary
 
-A tampered tarball defeats every protection above. Releases therefore publish
-only from CI via OIDC trusted publishing, with a Sigstore attestation binding
-each tarball to its source commit. No long-lived npm token exists to steal.
+A tampered tarball defeats every protection above. Releases are designed to
+publish only from CI via OIDC trusted publishing, with a Sigstore attestation
+binding each tarball to its source commit; the pipeline has not yet produced a
+published release (current published versions were manual). No long-lived npm
+token exists to steal.
 See [`DEPLOYMENT.md`](./DEPLOYMENT.md).
 
 ## Deliberate constraints

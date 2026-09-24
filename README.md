@@ -34,7 +34,7 @@ stoneai covenant approve <id>
 | `stoneai intelligence status\|scan\|assets\|routes\|tools\|state` | governed AI/Hugging Face registry administration |
 
 ## Security
-Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC-published with Sigstore provenance (releases after 0.1.1). See [`SECURITY.md`](./SECURITY.md).
+Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC Trusted Publishing configured (provenance on first CI-published release; current published versions carry registry signature only). See [`SECURITY.md`](./SECURITY.md).
 
 ## License
 Proprietary — © 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved. Operated by FanXor Dynamics LLC under authorization. See [`LICENSE`](./LICENSE).

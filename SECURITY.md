@@ -25,7 +25,7 @@
 ## Verifying a release
 ```bash
 npm view @stoneai/cli dist    # dist.attestations will be present once a CI-published release lands; currently absent
-npm audit signatures          # verifies registry signature + provenance
+npm audit signatures          # from a consumer install: audits registry signatures of installed packages; no-op in this repo (zero runtime deps)
 ```
 
 ## Reporting

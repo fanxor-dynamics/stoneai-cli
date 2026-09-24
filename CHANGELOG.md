@@ -6,6 +6,29 @@ versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-09-24
+
+### Added
+- **Capability discovery**: `stoneai capabilities [id] [--json] [--manifest <id>]` — browse the capability registry with color-coded statuses, detail views, and surface distribution manifests.
+- **Surface distribution**: `stoneai distribution [--json] [--gaps]` — view surface coverage report with progress bars and gap analysis across API, CLI, Web, Desktop, Mobile, Docs, and Telemetry surfaces.
+- **Interactive REPL mode**: `stoneai` with no arguments (in TTY) enters an interactive mode with slash commands (`/decree`, `/whoami`, `/capabilities`, etc.), `@<capability-id>` references, fuzzy command matching, and command history.
+- **Cross-device continuity**: `stoneai sessions`, `stoneai resume <id>`, `stoneai handoff <surface>`, `stoneai handoff accept <code>`, `stoneai devices` — manage sessions and handoffs across surfaces.
+- **Project management**: `stoneai projects`, `stoneai missions`, `stoneai mission <id>`, `stoneai mission create <title>`, `stoneai checkpoint`, `stoneai checkpoint restore`, `stoneai artifacts`.
+- **Enhanced whoami**: now shows tenant, plan with usage/included/overage, device key status, storage backend, and connection status in a structured card format.
+- **Progress spinners**: `decree`, `covenant`, and `esther` commands show animated spinners during API calls.
+- **Streaming for Esther**: Esther responses with a `stream` field are emitted incrementally.
+- **Structured error display**: all errors show icon, code, message, suggested action, and request ID. Auth errors suggest `stoneai login`, network errors suggest `stoneai doctor`.
+- **New colors**: green (`GN`) and yellow (`Y`) added to the terminal color palette.
+
+### Changed
+- Version bumped from 0.1.6 to 0.2.0.
+- `help()` expanded to document all new command families and interactive mode.
+- `run()` switch statement includes 15 new command cases.
+- Bare `stoneai` invocation enters REPL when stdin is a TTY (was: show help).
+
+### Fixed
+- None.
+
 ## [0.1.6] — 2026-09-22
 
 ### Added
@@ -83,7 +106,8 @@ Published manually. No provenance attestation.
 
 Initial release. Published manually. No provenance attestation.
 
-[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/fanxor-dynamics/stoneai-cli/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.2.0
 [0.1.3]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.3
 [0.1.2]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.2
 [0.1.1]: https://github.com/fanxor-dynamics/stoneai-cli/releases/tag/v0.1.1

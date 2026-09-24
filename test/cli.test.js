@@ -11,7 +11,18 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { run, formatCliError, formatUsageSummary, formatProviderDegradation } from '../lib/cli.js';
+import {
+  run,
+  formatCliError,
+  formatUsageSummary,
+  formatProviderDegradation,
+  buildHandoffCreateBody,
+  buildHandoffAcceptBody,
+  buildMissionCreateBody,
+  buildCheckpointBody,
+  buildMissionsQuery,
+  buildArtifactsQuery,
+} from '../lib/cli.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
@@ -129,4 +140,91 @@ test('a decree raised on a dead council surfaces the provider failure', () => {
 
 test('a healthy council adds no degradation notice', () => {
   assert.equal(formatProviderDegradation({ evidence: [{ action: 'probe' }] }), '');
+});
+
+// ── Request-shape contract tests ────────────────────────────────────────────
+// These pin the exact bodies/paths the CLI sends so server-contract drift is
+// caught before a release. They are pure (no network, no keychain, no FS).
+
+test('buildHandoffCreateBody sends fromSessionId + fromSurface=cli + toSurface + stateSnapshot', () => {
+  const sessionId = '11111111-1111-1111-1111-111111111111';
+  const body = buildHandoffCreateBody(sessionId, 'web');
+  assert.equal(body.fromSessionId, sessionId,  'fromSessionId must be the caller session UUID');
+  assert.equal(body.fromSurface,  'cli',        'fromSurface must always be "cli"');
+  assert.equal(body.toSurface,    'web',        'toSurface must be the target surface');
+  assert.deepEqual(body.stateSnapshot, {},      'stateSnapshot defaults to {}');
+  assert.equal('to'   in body, false, 'legacy "to" field must not appear');
+  assert.equal('from' in body, false, 'legacy "from" field must not appear');
+});
+
+test('buildHandoffAcceptBody sends toSessionId and nothing else', () => {
+  const sessionId = '22222222-2222-2222-2222-222222222222';
+  const body = buildHandoffAcceptBody(sessionId);
+  assert.equal(body.toSessionId, sessionId);
+  assert.equal('code'      in body, false, 'legacy "code" field must not appear');
+  assert.equal(Object.keys(body).length, 1, 'only toSessionId should be present');
+});
+
+test('buildMissionCreateBody uses camelCase projectId / workspaceId', () => {
+  const body = buildMissionCreateBody('My mission', {
+    projectId:   'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa',
+    workspaceId: 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+  });
+  assert.equal(body.title,       'My mission');
+  assert.equal(body.projectId,   'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
+  assert.equal(body.workspaceId, 'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb');
+  assert.equal('project_id'   in body, false, 'snake_case project_id must not appear');
+  assert.equal('workspace_id' in body, false, 'snake_case workspace_id must not appear');
+});
+
+test('buildMissionCreateBody with title only omits optional fields', () => {
+  const body = buildMissionCreateBody('Bare mission');
+  assert.equal(body.title, 'Bare mission');
+  assert.equal('projectId'   in body, false);
+  assert.equal('workspaceId' in body, false);
+});
+
+test('buildCheckpointBody includes label and state', () => {
+  const body = buildCheckpointBody('v1.0 snapshot');
+  assert.equal(body.label, 'v1.0 snapshot');
+  assert.deepEqual(body.state, {});
+});
+
+test('buildCheckpointBody with no label generates a non-empty default', () => {
+  const body = buildCheckpointBody(null);
+  assert.ok(body.label.length > 0, 'label must not be empty when omitted by user');
+  // Server rejects empty label (min(1)), so no empty-string default is allowed.
+  assert.ok(body.label !== '', 'label must not be empty string');
+  assert.deepEqual(body.state, {});
+});
+
+test('buildMissionsQuery uses workspaceId not workspace', () => {
+  const qs = buildMissionsQuery({ status: 'active', workspaceId: 'cccccccc-cccc-cccc-cccc-cccccccccccc' });
+  assert.equal(qs.get('workspaceId'), 'cccccccc-cccc-cccc-cccc-cccccccccccc',
+    'server reads qs.workspaceId — not "workspace"');
+  assert.equal(qs.get('workspace'), null, 'legacy "workspace" key must not appear');
+  assert.equal(qs.get('status'), 'active');
+});
+
+test('buildMissionsQuery with no opts is empty', () => {
+  const qs = buildMissionsQuery();
+  assert.equal([...qs.entries()].length, 0);
+});
+
+test('buildArtifactsQuery uses camelCase missionId / projectId', () => {
+  const qs = buildArtifactsQuery({
+    missionId: 'dddddddd-dddd-dddd-dddd-dddddddddddd',
+    projectId: 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee',
+    kind: 'report',
+  });
+  assert.equal(qs.get('missionId'), 'dddddddd-dddd-dddd-dddd-dddddddddddd');
+  assert.equal(qs.get('projectId'), 'eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee');
+  assert.equal(qs.get('kind'),      'report');
+  assert.equal(qs.get('mission_id'), null, 'legacy snake_case mission_id must not appear');
+  assert.equal(qs.get('project_id'), null, 'legacy snake_case project_id must not appear');
+});
+
+test('buildArtifactsQuery with no opts is empty', () => {
+  const qs = buildArtifactsQuery();
+  assert.equal([...qs.entries()].length, 0);
 });

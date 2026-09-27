@@ -1,6 +1,6 @@
 # Deployment — publishing `@stoneai/cli`
 
-Copyright © 2026 FanXor Dynamics LLC.
+Copyright © 2026 FanXora Innovation & Technology Group L.L.C.
 
 Publishing is fully automated and human-gated. **Never run `npm publish` by
 hand** — a manual publish produces an unsigned artifact with no provenance,

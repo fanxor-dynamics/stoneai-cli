@@ -1,6 +1,6 @@
 # Architecture — `@stoneai/cli`
 
-Copyright © 2026 FanXor Dynamics LLC.
+Copyright © 2026 FanXora Innovation & Technology Group L.L.C.
 
 
 ## Convergence directive

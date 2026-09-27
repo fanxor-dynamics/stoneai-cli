@@ -1,6 +1,6 @@
 # Contributing to `@stoneai/cli`
 
-Copyright © 2026 FanXor Dynamics LLC. This is proprietary software — see
+Copyright © 2026 FanXora Innovation & Technology Group L.L.C. All rights reserved. StoneAI™ is operated by FanXor Dynamics LLC under authorization. This is proprietary software — see
 [`LICENSE`](./LICENSE).
 
 The source is readable for auditability: this package asks you to trust it with

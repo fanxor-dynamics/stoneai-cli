@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Copyright © 2026 FanXora Innovation & Technology Group L.L.C..
+Copyright © 2026 FanXora Innovation & Technology Group L.L.C.
 
 ## Publishing
 

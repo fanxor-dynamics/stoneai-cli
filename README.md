@@ -84,4 +84,4 @@ stoneai models coding
 
 The CLI does not select a vendor merely because it is cheap. StoneAI first applies tenant policy and capability eligibility, then chooses among eligible routes using the server-side economic order. Provider credentials remain server-side.
 
-Image and video generation use the same governed capability fabric through StoneAI's media route. The CLI never receives provider credentials. Voice remains fail-closed/not advertised until a governed audio adapter is implemented and validated.
+Image and video commands use StoneAI's governed media route. The NVIDIA media adapter intentionally fails closed until the current NVIDIA media base URL and endpoint path are explicitly configured and validated; no unverified vendor path is hard-coded. The CLI never receives provider credentials. Voice remains fail-closed/not advertised until a governed audio adapter is implemented and validated.

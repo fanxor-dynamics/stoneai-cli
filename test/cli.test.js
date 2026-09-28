@@ -22,6 +22,7 @@ import {
   buildCheckpointBody,
   buildMissionsQuery,
   buildArtifactsQuery,
+  buildRouteBody,
 } from '../lib/cli.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -227,4 +228,19 @@ test('buildArtifactsQuery uses camelCase missionId / projectId', () => {
 test('buildArtifactsQuery with no opts is empty', () => {
   const qs = buildArtifactsQuery();
   assert.equal([...qs.entries()].length, 0);
+});
+
+test('buildRouteBody pins the Stone free-fabric contract', () => {
+  assert.deepEqual(buildRouteBody('build it', ['coding'], 2048), {
+    prompt: 'build it',
+    capabilities: ['coding'],
+    maxOutputTokens: 2048,
+  });
+});
+
+test('help exposes Stone Command free-fabric commands', async () => {
+  const output = await capture(['help']);
+  for (const command of ['ask', 'code', 'research', 'models', 'image', 'video']) {
+    assert.ok(output.includes(command), `help output is missing '${command}'`);
+  }
 });

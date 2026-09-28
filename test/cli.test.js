@@ -240,7 +240,7 @@ test('buildRouteBody pins the Stone free-fabric contract', () => {
 
 test('help exposes Stone Command free-fabric commands', async () => {
   const output = await capture(['help']);
-  for (const command of ['ask', 'code', 'research', 'models']) {
+  for (const command of ['ask', 'code', 'research', 'models', 'image', 'video']) {
     assert.ok(output.includes(command), `help output is missing '${command}'`);
   }
 });

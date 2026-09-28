@@ -67,3 +67,21 @@ OmniIntelligence is the capability namespace spanning StoneAI's governed intelli
 - OmniCompute / OmniCost — capacity and economics
 
 These names map onto canonical StoneAI services; they do not create parallel control planes.
+
+
+## Stone Command
+
+Running `stone` or `stoneai` in a terminal launches the governed interactive command surface. Ordinary prose is routed through StoneAI's capability-based Free Intelligence Fabric; control-plane operations remain explicit slash commands.
+
+```bash
+stone
+stoneai ask "Explain this repository"
+stoneai code "Review this service for failure modes"
+stoneai research "Compare these architectures"
+stoneai models free
+stoneai models coding
+```
+
+The CLI does not select a vendor merely because it is cheap. StoneAI first applies tenant policy and capability eligibility, then chooses among eligible routes using the server-side economic order. Provider credentials remain server-side.
+
+Media generation (`/image`, `/video`, `/voice`) belongs to the same capability fabric but is not falsely advertised as implemented until the corresponding governed media endpoint is live.

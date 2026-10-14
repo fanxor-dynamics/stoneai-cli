@@ -70,8 +70,15 @@ test('help lists every documented command', async () => {
 });
 
 test('bare invocation shows help instead of throwing', async () => {
-  const output = await capture([]);
-  assert.match(output, /StoneAI/);
+  // Force non-TTY stdin so run() doesn't enter the interactive REPL (which would hang).
+  const originalIsTTY = process.stdin.isTTY;
+  process.stdin.isTTY = false;
+  try {
+    const output = await capture([]);
+    assert.match(output, /StoneAI/);
+  } finally {
+    process.stdin.isTTY = originalIsTTY;
+  }
 });
 
 test('unknown command degrades to help rather than crashing', async () => {

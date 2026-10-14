@@ -13,6 +13,13 @@ import { dirname, join } from 'node:path';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
 
+const lock = JSON.parse(readFileSync(join(root, 'package-lock.json'), 'utf8'));
+
+test('package-lock version matches package version', () => {
+  assert.equal(lock.version, pkg.version);
+  assert.equal(lock.packages?.['']?.version, pkg.version);
+});
+
 test('zero runtime dependencies', () => {
   const deps = Object.keys(pkg.dependencies ?? {});
   assert.deepEqual(deps, [], `runtime dependencies added: ${deps.join(', ')}`);

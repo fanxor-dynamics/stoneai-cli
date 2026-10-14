@@ -33,6 +33,29 @@ stoneai covenant approve <id>
 | `stoneai intelligence capabilities` | authenticated Intelligence Fabric capability manifest |
 | `stoneai intelligence status\|scan\|assets\|routes\|tools\|state` | governed AI/Hugging Face registry administration |
 
+### Account and session authentication
+
+Create an account with email, company, and a password supplied interactively or on standard input:
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai signup --email you@example.com --company "Example Co" --password-stdin
+```
+
+For email/password session authentication, use `--session`. The resulting access and refresh tokens are stored in secure credential storage, allowing the CLI to refresh the access token when needed:
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai login --session --email you@example.com --password-stdin
+```
+
+For machine-readable API-key authentication, provide the key on standard input with `--with-key --key-stdin`:
+
+```bash
+printf '%s\n' "$STONEAI_API_KEY" | stoneai --json login --with-key --key-stdin
+```
+
+`--json` may appear before or after the command. Credentials never belong in `~/.stoneai/config.json`; that file contains non-secret configuration, while API keys and session tokens use the OS keychain or the encrypted-file fallback.
+
+
 ## Security
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC Trusted Publishing configured (provenance on first CI-published release; current published versions carry registry signature only). See [`SECURITY.md`](./SECURITY.md).
 

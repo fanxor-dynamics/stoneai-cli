@@ -101,6 +101,32 @@ test('401 triggers exactly one refresh, retry uses new token, refresh carries no
   assert.strictEqual(auth.refreshToken, 'new-refresh');
 });
 
+test('empty or non-string refresh response preserves the existing refresh token', async () => {
+  requests = [];
+  setAuth({ accessToken: 'expired-access-2', refreshToken: 'preserve-this-refresh' });
+
+  handler = (res) => {
+    const last = requests[requests.length - 1];
+    if (last.url === '/v1/sessions/refresh') {
+      return json(res, 200, {
+        success: true,
+        data: {
+          token: 'new-access-2',
+          refreshToken: '',
+          refresh_token: 42,
+        },
+      });
+    }
+    if (last.headers.authorization === 'Bearer new-access-2') {
+      return json(res, 200, { success: true, data: { ok: true } });
+    }
+    return json(res, 401, { error: 'token expired' });
+  };
+
+  assert.deepStrictEqual(await api('/v1/data'), { ok: true });
+  assert.strictEqual(getAuth().refreshToken, 'preserve-this-refresh');
+});
+
 test('401 without refreshToken does not attempt refresh and surfaces the original error', async () => {
   requests = [];
   setAuth({ accessToken: 'expired-no-refresh' });

@@ -67,6 +67,35 @@ dependency is genuinely required, that is a security-posture decision — update
 
 ## Client runtime
 
+### Creating an account
+
+Use `stoneai signup --email --company`, then enter the password when prompted. For non-interactive use, provide the password on standard input with `--password-stdin`:
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai signup --email you@example.com --company "Example Co" --password-stdin
+```
+
+### Logging in with a session
+
+Use `stoneai login --session --email` for email/password authentication. Add `--password-stdin` when the password is supplied through standard input. Session login stores both the access token and refresh token in secure credential storage; the access token can therefore be refreshed without placing credentials in the config file.
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai login --session --email you@example.com --password-stdin
+```
+
+### Machine-readable API-key login
+
+For scripts, use `stoneai login --with-key --key-stdin` and pipe the API key on standard input. Add `--json` for JSON output. `--json` may appear before or after the command:
+
+```bash
+printf '%s\n' "$STONEAI_API_KEY" | stoneai --json login --with-key --key-stdin
+```
+
+### Credentials found in `config.json`
+
+Credentials must not be placed in `~/.stoneai/config.json`. The file is for non-secret configuration such as `base_url`, `tenant`, and `device_label`; API keys and session tokens are kept in the OS keychain or encrypted-file fallback. If a legacy config contains credential fields, the CLI removes unknown keys when it reads and rewrites the sanitized config.
+
+
 ### `stoneai login` opens no browser
 
 Headless or SSH sessions have no browser to open. Use `stoneai login --with-key`

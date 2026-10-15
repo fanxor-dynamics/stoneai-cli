@@ -33,6 +33,29 @@ stoneai covenant approve <id>
 | `stoneai intelligence capabilities` | authenticated Intelligence Fabric capability manifest |
 | `stoneai intelligence status\|scan\|assets\|routes\|tools\|state` | governed AI/Hugging Face registry administration |
 
+### Account and session authentication
+
+Create an account with email, company, and a password supplied interactively or on standard input:
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai signup --email you@example.com --company "Example Co" --password-stdin
+```
+
+For email/password session authentication, use `--session`. The resulting access and refresh tokens are stored in secure credential storage, allowing the CLI to refresh the access token when needed:
+
+```bash
+printf '%s\n' "$PASSWORD" | stoneai login --session --email you@example.com --password-stdin
+```
+
+For machine-readable API-key authentication, provide the key on standard input with `--with-key --key-stdin`:
+
+```bash
+printf '%s\n' "$STONEAI_API_KEY" | stoneai --json login --with-key --key-stdin
+```
+
+`--json` may appear before or after the command. Credentials never belong in `~/.stoneai/config.json`; that file contains non-secret configuration, while API keys and session tokens use the OS keychain or the encrypted-file fallback.
+
+
 ## Security
 Thin client · zero dependencies · zero telemetry · OS-keychain credential storage · client-held Ed25519 covenant signing · OIDC Trusted Publishing configured (provenance on first CI-published release; current published versions carry registry signature only). See [`SECURITY.md`](./SECURITY.md).
 
@@ -67,3 +90,21 @@ OmniIntelligence is the capability namespace spanning StoneAI's governed intelli
 - OmniCompute / OmniCost — capacity and economics
 
 These names map onto canonical StoneAI services; they do not create parallel control planes.
+
+
+## Stone Command
+
+Running `stone` or `stoneai` in a terminal launches the governed interactive command surface. Ordinary prose is routed through StoneAI's capability-based Free Intelligence Fabric; control-plane operations remain explicit slash commands.
+
+```bash
+stone
+stoneai ask "Explain this repository"
+stoneai code "Review this service for failure modes"
+stoneai research "Compare these architectures"
+stoneai models free
+stoneai models coding
+```
+
+The CLI does not select a vendor merely because it is cheap. StoneAI first applies tenant policy and capability eligibility, then chooses among eligible routes using the server-side economic order. Provider credentials remain server-side.
+
+Image and video commands use StoneAI's governed media route. The NVIDIA media adapter intentionally fails closed until the current NVIDIA media base URL and endpoint path are explicitly configured and validated; no unverified vendor path is hard-coded. The CLI never receives provider credentials. Voice remains fail-closed/not advertised until a governed audio adapter is implemented and validated.

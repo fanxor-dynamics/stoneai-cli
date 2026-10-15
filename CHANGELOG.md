@@ -15,6 +15,13 @@ attestation. The 0.1.2 entry's claim of "carries a provenance attestation" is no
 borne out by the registry.
 
 ## [Unreleased]
+### Added
+- **Account & session auth**: `stoneai signup --email --company [--password-stdin]` creates an account and logs in, persisting the API key in secure storage; `stoneai login --session --email [--password-stdin]` logs in with email/password and issues a renewable access token plus refresh token; `login --with-key --key-stdin` logs in with a stored API key for machine-readable auth.
+- **Secure session refresh**: `whoami` reports whether a refresh token is present; sessions without a refresh token are treated as authenticated but non-renewable, and `login --session` stores an access token plus refresh token for automatic refresh.
+- **Flag order**: `--json` may precede or follow a command; the CLI normalizes keyword flags before dispatch and re-injects `--json` so `stoneai --json signup --email ... --company ... --password-stdin` and `stoneai signup --email ... --company ... --password-stdin --json` both emit JSON.
+- **Credential storage**: config credentials never belong in `config.json`; the CLI writes only `base_url`, `tenant`, and `device_label` there, and stores API keys and session tokens in the OS keychain (encrypted-file fallback) so no credential reaches `config.json`.
+- **Secure by default**: `login --session` authenticates with `auth: false` and stores tokens via `setAuth`; `signup` also uses `auth: false` and stores the returned API key as an access token.
+
 
 ## [0.2.0] — 2026-09-24
 

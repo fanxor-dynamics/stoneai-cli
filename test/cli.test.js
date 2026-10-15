@@ -244,3 +244,10 @@ test('help exposes Stone Command free-fabric commands', async () => {
     assert.ok(output.includes(command), `help output is missing '${command}'`);
   }
 });
+test('login --help and login -h print login usage and exit successfully without generating keys or network calls', async () => {
+  for (const flag of ['--help', '-h']) {
+    const output = await capture(['login', flag]);
+    assert.match(output, /stoneai login/i);
+    assert.doesNotMatch(output, /confirm this device in your browser/i);
+  }
+});

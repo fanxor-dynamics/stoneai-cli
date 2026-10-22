@@ -71,7 +71,7 @@ These names map onto canonical StoneAI services; they do not create parallel con
 
 ## Stone Command
 
-Running `stone` or `stoneai` in a terminal launches the governed interactive command surface. Ordinary prose is routed through StoneAI's capability-based Free Intelligence Fabric; control-plane operations remain explicit slash commands.
+Running `stone` or `stoneai` in a terminal launches the governed interactive command surface. Ordinary prose is sent to Esther through StoneAI governance; control-plane operations remain explicit slash commands.
 
 ```bash
 stone
@@ -85,3 +85,7 @@ stoneai models coding
 The CLI does not select a vendor merely because it is cheap. StoneAI first applies tenant policy and capability eligibility, then chooses among eligible routes using the server-side economic order. Provider credentials remain server-side.
 
 Image and video commands use StoneAI's governed media route. The NVIDIA media adapter intentionally fails closed until the current NVIDIA media base URL and endpoint path are explicitly configured and validated; no unverified vendor path is hard-coded. The CLI never receives provider credentials. Voice remains fail-closed/not advertised until a governed audio adapter is implemented and validated.
+
+## Default communication route
+
+In the interactive terminal, ordinary messages go to Esther using the tenant authenticated `/v1/esther/chat` API. `stoneai ask`, `stoneai code`, and `stoneai research` use the same governed boundary, with task capabilities. `/decree` and `/covenant` remain explicit human authorized governance commands. No direct provider credentials are stored in the CLI.

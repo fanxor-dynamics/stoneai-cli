@@ -251,3 +251,12 @@ test('login --help and login -h print login usage and exit successfully without 
     assert.doesNotMatch(output, /confirm this device in your browser/i);
   }
 });
+
+test('every ordinary text surface routes through Esther and StoneAI', () => {
+  const cli = readFileSync(join(root, 'lib/cli.js'), 'utf8');
+  assert.match(cli, /await esther\(\[raw\], \['text'\]\)/);
+  assert.match(cli, /return esther\(\[promptText\], \['text'\]\)/);
+  assert.match(cli, /return esther\(\[promptText\], \['coding'\]\)/);
+  assert.match(cli, /return esther\(\[promptText\], \['reasoning'\]\)/);
+  assert.match(cli, /api\('\/v1\/esther\/chat'/);
+});
